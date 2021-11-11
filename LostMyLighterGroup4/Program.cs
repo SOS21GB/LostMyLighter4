@@ -1,5 +1,6 @@
 ﻿using System;
 using LostMyLighterGroup4.MenuClasses;
+using System.Collections.Generic;
 
 namespace LostMyLighterGroup4
 {
@@ -7,10 +8,15 @@ namespace LostMyLighterGroup4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            DummyUser name = new DummyUser();
+            DummyUser name2 = new DummyUser();
+            List<int> users = new List<int>();
+            foreach(int item in DummyUser.UsersIDS.Keys)
+            {
+                users.Add(item);
+            }
+                LogIn.CheckUser(users);
 
-            StandardMenu stdMenu = new StandardMenu();
-            stdMenu.MainMenu();
         }
     }
 }

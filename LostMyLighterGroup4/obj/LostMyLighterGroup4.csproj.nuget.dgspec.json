@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emil Wallin\\OneDrive - Handelsakademin\\Grundl Objektorienterad Programmering\\Gruppuppgift lighter\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {}
+    "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emil Wallin\\OneDrive - Handelsakademin\\Grundl Objektorienterad Programmering\\Gruppuppgift lighter\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {
+    "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emil Wallin\\OneDrive - Handelsakademin\\Grundl Objektorienterad Programmering\\Gruppuppgift lighter\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
+        "projectUniqueName": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
         "projectName": "LostMyLighterGroup4",
-        "projectPath": "C:\\Users\\Emil Wallin\\OneDrive - Handelsakademin\\Grundl Objektorienterad Programmering\\Gruppuppgift lighter\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
-        "packagesPath": "C:\\Users\\Emil Wallin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emil Wallin\\OneDrive - Handelsakademin\\Grundl Objektorienterad Programmering\\Gruppuppgift lighter\\LostMyLighterGroup4\\obj\\",
+        "projectPath": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
+        "packagesPath": "C:\\Users\\Jocke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Emil Wallin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Jocke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
