@@ -1,4 +1,5 @@
 ﻿using System;
+using LostMyLighterGroup4.MenuClasses;
 
 namespace LostMyLighterGroup4
 {
@@ -7,6 +8,9 @@ namespace LostMyLighterGroup4
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            StandardMenu stdMenu = new StandardMenu();
+            stdMenu.MainMenu();
         }
     }
 }
