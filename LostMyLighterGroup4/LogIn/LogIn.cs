@@ -8,9 +8,7 @@ namespace LostMyLighterGroup4.MenuClasses
 {
     static class LogIn
     {
-        static bool userFound = false;
-        static int userID;
-        
+     
         //Metod kontrollerar inmatat användar id mot lista av användar-ID
         public static int CheckUser(List<int> userIDList)
         {
