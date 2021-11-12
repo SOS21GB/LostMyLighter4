@@ -50,7 +50,7 @@ namespace LostMyLighterGroup4
 
         public Address(string street, string postCode, string postTown)
         {
-            this._postTown = street;
+            this._street = street;
             this._postCode = postCode;
             this._postTown = postTown;
         }
