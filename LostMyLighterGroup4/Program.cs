@@ -8,15 +8,8 @@ namespace LostMyLighterGroup4
     {
         static void Main(string[] args)
         {
-            DummyUser name = new DummyUser();
-            DummyUser name2 = new DummyUser();
-            List<int> users = new List<int>();
-            foreach(int item in DummyUser.UsersIDS.Keys)
-            {
-                users.Add(item);
-            }
-                LogIn.CheckUser(users);
-
+            ProgramManager programManager = new ProgramManager();
+            
         }
     }
 }

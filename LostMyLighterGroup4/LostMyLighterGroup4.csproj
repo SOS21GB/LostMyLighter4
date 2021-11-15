@@ -4,9 +4,4 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="C:\Users\Jocke\Desktop\LogIn.cs" Link="LogIn.cs" />
-  </ItemGroup>
-
 </Project>
