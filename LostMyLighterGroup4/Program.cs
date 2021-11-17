@@ -7,10 +7,13 @@ namespace LostMyLighterGroup4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           /* Console.WriteLine("Hello World!");
 
             StandardMenu stdMenu = new StandardMenu();
-            stdMenu.MainMenu();
+            stdMenu.MainMenu(); 
+            */
+
+            Marschaller marschaller = new Marschaller(_id, _brand)
         }
     }
 }
