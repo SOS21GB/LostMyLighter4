@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
+      "projectUniqueName": "C:\\Users\\Jocke\\Desktop\\Sos21\\Objektorientead programmering grund\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
       "projectName": "LostMyLighterGroup4",
-      "projectPath": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
+      "projectPath": "C:\\Users\\Jocke\\Desktop\\Sos21\\Objektorientead programmering grund\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
       "packagesPath": "C:\\Users\\Jocke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\obj\\",
+      "outputPath": "C:\\Users\\Jocke\\Desktop\\Sos21\\Objektorientead programmering grund\\LostMyLighter4\\LostMyLighterGroup4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jocke\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
