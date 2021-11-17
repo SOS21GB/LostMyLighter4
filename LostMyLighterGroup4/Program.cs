@@ -52,8 +52,6 @@ namespace LostMyLighterGroup4
 
             /*currentuser.AntalsSökning();
             user.AntalsSökningStatic(currentuser.)*/
-
-
         }
     }
 }
