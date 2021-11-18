@@ -13,7 +13,7 @@ namespace LostMyLighterGroup4
             stdMenu.MainMenu(); 
             */
 
-            Marschaller marschaller = new Marschaller(_id, _brand)
+            //Marschaller marschaller = new Marschaller(_id, _brand)
         }
     }
 }
