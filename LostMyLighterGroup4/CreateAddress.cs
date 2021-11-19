@@ -17,14 +17,14 @@ namespace LostMyLighterGroup4
 
             string street = Console.ReadLine();
 
-            street = street.ToLower();
+            street = street.ToLower().Trim();
 
             return street;
         }
 
         public static string AddPostCode()
         {
-            Console.Write("Postnummer; ");
+            Console.Write("Postnummer: ");
 
             List<char> postCodeList = new List<char>();// Lista för att kunna justera inmatningen.
 
@@ -40,7 +40,7 @@ namespace LostMyLighterGroup4
 
                 postCodeList.AddRange(postCode);
 
-                if (!string.IsNullOrWhiteSpace(postCode))// Möjliggör att postnummerfältet lämnas tomt.
+                if (!string.IsNullOrWhiteSpace(postCode))// Möjliggör att postnummerfältet lämnas tomt. ELLER GÖRA TVÄRT OM, DVS SOM PÅ DE ANDRA?
                 {
                     for (int i = postCodeList.Count - 1; i >= 0; i--)// Tar bort ev. mellanslag.
                     {
@@ -77,18 +77,16 @@ namespace LostMyLighterGroup4
 
             string pCode = new string(postCodeList.ToArray());// Listan tillbaka till string.
 
-            pCode = pCode.Insert(3, " ");// Formattering av postnumret (XXX XX).
-
             return pCode;
         }
-
+        
         public static string AddPostTown() // Ej klar.
         {
             Console.Write("Postort: ");
 
             string pTown = Console.ReadLine();
 
-            pTown = pTown.ToLower();
+            pTown = pTown.ToLower().Trim();
 
             return pTown;
         }
