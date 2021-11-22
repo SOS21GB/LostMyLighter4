@@ -8,12 +8,29 @@ namespace LostMyLighterGroup4
     {
         static void Main(string[] args)
         {
-            DummyUser name = new DummyUser();
-            DummyUser name2 = new DummyUser();
-            List<int> users = new List<int>();
-            foreach(int item in DummyUser.UsersIDS.Keys)
+          //  Console.WriteLine(User);
+            Console.WriteLine("Vill du ta bort användaren?");
+            Console.WriteLine("1/ Ja" );
+            Console.WriteLine("2/ Nej");
+            int x = Convert.ToInt32(Console.ReadLine());
+
+            switch(x)
             {
-                users.Add(item);
+                case 1:
+
+                   // User.Clear();
+                   // Console.WriteLine(User);
+                    Console.WriteLine("Nu är användaren borttagen");
+
+                    break;
+
+                default:
+
+                    Console.WriteLine("användaren är kvar");
+
+                    break;
+
+
             }
                 LogIn.CheckUser(users);
 
