@@ -8,6 +8,7 @@ namespace LostMyLighterGroup4
 {
     class Marschall
     {
+        private static List<Marschall> marschalls = new List<Marschall>();
 
         //Id, Märke, Förväntad brinntid, Adress, Tid för registrering, Vilken användare som registrerade den, När den förväntas slockna
         private int _id;
@@ -28,6 +29,8 @@ namespace LostMyLighterGroup4
             this._registrationDate = DateTime.Now;
             this._expectedBurnTime = _expectedBurnTime;
             this._expectedBlowoutTime = _expectedBlowoutTime.AddHours(_expectedBurnTime);
+
+            marschalls.Add(this);
         }
 
         public void PrintInfo()
@@ -41,7 +44,16 @@ namespace LostMyLighterGroup4
             Console.WriteLine("Expected blow out time: {0}", _expectedBlowoutTime);
         }
 
+
+
         //Properties
+        //List
+        static public List<Marschall> Marschalls
+        {
+            get { return marschalls; }
+        }
+
+        //Fields
         public int ID
         {
             get { return _id; }
