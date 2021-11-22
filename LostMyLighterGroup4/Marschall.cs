@@ -26,6 +26,7 @@ namespace LostMyLighterGroup4
             this._address = _address;
             this._registeringUser = _registeringUser;
             this._registrationDate = DateTime.Now;
+            this._expectedBurnTime = _expectedBurnTime;
             this._expectedBlowoutTime = _expectedBlowoutTime.AddHours(_expectedBurnTime);
         }
 
@@ -38,6 +39,36 @@ namespace LostMyLighterGroup4
             Console.WriteLine("Date of registration: {0}", _registrationDate);
             Console.WriteLine("Expected burn time: {0}", _expectedBurnTime);
             Console.WriteLine("Expected blow out time: {0}", _expectedBlowoutTime);
+        }
+
+        //Properties
+        public int ID
+        {
+            get { return _id; }
+        }
+        public string Brand
+        {
+            get { return _brand; }
+        }
+        public Address Address
+        {
+            get { return _address; }
+        }
+        public string RegisteringUser
+        {
+            get { return _registeringUser; }
+        }
+        public DateTime RegistrationDate
+        {
+            get { return _registrationDate; }
+        }
+        public double ExpectedBurnTime
+        {
+            get { return _expectedBurnTime; }
+        }
+        public DateTime ExpectedBlowoutTime
+        {
+            get { return _expectedBlowoutTime; }
         }
     }
 }
