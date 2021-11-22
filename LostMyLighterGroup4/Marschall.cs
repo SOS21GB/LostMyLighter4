@@ -19,10 +19,10 @@ namespace LostMyLighterGroup4
         private double _expectedBurnTime = 0;
         private DateTime _expectedBlowoutTime = DateTime.Now;
 
-        public Marschall(int _id, string _brand, Address _address, string _registeringUser, double _expectedBurnTime)
+        public Marschall(string _brand, Address _address, string _registeringUser, double _expectedBurnTime)
 
         {
-            this._id = _id;
+            this._id = marschalls.Count + 1;
             this._brand = _brand;
             this._address = _address;
             this._registeringUser = _registeringUser;
@@ -35,15 +35,29 @@ namespace LostMyLighterGroup4
 
         public void PrintInfo()
         { 
-            Console.WriteLine("ID: {0}", _id);
-            Console.WriteLine("Brand: {0}", _brand);
-            Console.WriteLine("Address: {0}", _address);
-            Console.WriteLine("Registering user: {0}", _registeringUser);
-            Console.WriteLine("Date of registration: {0}", _registrationDate);
-            Console.WriteLine("Expected burn time: {0}", _expectedBurnTime);
-            Console.WriteLine("Expected blow out time: {0}", _expectedBlowoutTime);
+            Console.WriteLine("ID: {0}. Brand: {1}. Address: {2}", _id, _brand, _address.Street);
+            Console.WriteLine("   Registered by: {0} on {1} at {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
+            Console.WriteLine( "   Expected blow out: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
         }
 
+
+        //Statiska metoder för listan
+        public static void PrintAllMarschalls()
+        {
+            foreach(Marschall m in marschalls)
+            {
+                m.PrintInfo();
+            }
+        }
+
+        public static void PrintActiveMarschalls()
+        {
+            foreach (Marschall m in marschalls)
+            {
+                if(m._expectedBlowoutTime > DateTime.Now)
+                    m.PrintInfo();
+            }
+        }
 
 
         //Properties
