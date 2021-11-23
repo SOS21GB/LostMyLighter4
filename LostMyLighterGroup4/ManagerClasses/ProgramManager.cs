@@ -17,7 +17,7 @@ namespace LostMyLighterGroup4
             switch (_userActive)
             {
                 default:
-                    //LoggedinUserChoice(LoggedInUserMenuObject.UserMenu("Name"));
+                    //LoggedinUserChoice(LoggedInUserMenuObject.UserMenu("userObjectlist[_userActive].Name"));
                     break;
                 case 0:
                     //StandardUserChoice( standarMenuObject.MainMenu());
@@ -31,30 +31,27 @@ namespace LostMyLighterGroup4
                 switch (selection)
                 {
                     case 1:
-                        //run print active marschalls method
+                        //run marschalls menu
                         break;
                     case 2:
-                        //run search marschalls method
-                        break;
-                    case 3:
                         //run create new marschall method
                         break;
-                    case 4:
+                    case 3:
                         //run add lostlighter method
                         break;
-                    case 5:
+                    case 4:
                         // run print profile info method
                         break;
-                    case 6:
+                    case 5:
                         // run change user name method
                         break;
-                    case 7:
+                    case 6:
                         //run change age method
                         break;
-                    case 8:
+                    case 7:
                         //run change user adress method
                         break;
-                    case 9:
+                    case 8:
                     Console.WriteLine("Du loggas ut");
                     _userActive = 0;
                     break;
@@ -71,14 +68,14 @@ namespace LostMyLighterGroup4
             switch(selection)
             {
                 case 1:
-                    //run print active marschalls method
+                    //run marschalls menu
                     break;
                 case 2:
                     //run create new marschall method or constructor
                     break;
                 case 3:
-                    // - Skall GetAllIDs vara objektbaserad eller static ??
-                    //LogIn.CheckUser(ManagerClasses.UserManager.GetAllIDs());
+                    // -> saknas lista på userID:n
+                    // _userActive = LogIn.CheckUser(userIdList);
                     break;
                 case 4:
                     //create new user method or constructor
