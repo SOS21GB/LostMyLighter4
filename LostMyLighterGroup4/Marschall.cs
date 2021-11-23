@@ -59,6 +59,154 @@ namespace LostMyLighterGroup4
             }
         }
 
+        public static void FindStreet(string street) // Addressobjektets gata ska in här.
+        {
+            Console.WriteLine("Ange adress. Raderna för nummer och bokstav kan lämnas tomma. ");
+
+            string userStreet = "";
+
+            bool loop = true;
+
+            while (loop)
+            {
+                Console.Write("\nGata: ");
+
+                userStreet = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(userStreet))
+                {
+                    Console.Write("Ingen uppgift. Försök igen: ");
+                }
+                else
+                {
+                    loop = false;
+                }
+            }
+
+            Console.Write("\nNummer: ");
+
+            string userStreetNumber = Console.ReadLine();
+
+            Console.Write("\nBokstav: ");
+
+            string userStreetLetter = Console.ReadLine();
+
+            userStreet = userStreet.ToLower().Trim();
+
+            userStreetNumber = userStreetNumber.ToLower().Trim();
+
+            userStreetLetter = userStreetLetter.ToUpper().Trim();
+
+            string userQuery = userStreet + " " + userStreetNumber + " " + userStreetLetter; // Uppdelning och sammansättning för bättre kontroll.
+
+            string firstLetterUpper = userStreet.Substring(0, 1); // Formatering av utskrift.
+
+            string followingLetters = userStreet.Substring(1);
+
+            firstLetterUpper = firstLetterUpper.ToUpper() + followingLetters;
+
+            List<char> streetList = new List<char>(); // För att få med hela gatunamnet om bara första ordet anges i en flerordig adress.
+
+            streetList.AddRange(street);
+
+            string streetAddLetters = "";
+
+            foreach (var item in streetList)
+            {
+                if (!Char.IsDigit(item))
+                {
+                    streetAddLetters += item;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            streetAddLetters = streetAddLetters.TrimEnd();
+
+            if (street.Equals(userQuery) && !string.IsNullOrWhiteSpace(userStreetNumber) && !string.IsNullOrWhiteSpace(userStreetLetter))
+            {
+                Console.WriteLine("\nEn marshall finns på {0} {1} {2}.", firstLetterUpper, userStreetNumber, userStreetLetter);
+            }
+            else if (streetAddLetters.Equals(userStreet) && street.Contains(userStreetNumber) && !string.IsNullOrWhiteSpace(userStreetNumber))// streetStart här och under
+            {
+                Console.WriteLine("\nEn marshall finns på {0}.", street);
+            }
+            else if (streetAddLetters.Equals(userStreet) || streetAddLetters.StartsWith(userStreet))
+            {
+                Console.WriteLine("\nMinst en marschall finns någonstans på {0}", streetAddLetters);
+            }
+            else
+            {
+                Console.WriteLine("\nIngen träff.");
+            }
+        }
+
+        public static void FindPostCode(string postCode) // Adressobjektets postnummer ska in här.
+        {
+            Console.Write("Ange postnummer: ");
+
+            List<char> userPostCodeList = new List<char>();
+
+            bool loop = true;
+
+            while (loop)
+            {
+                userPostCodeList.Clear(); // Nollställ om loopen går igen så att det inte byggs på element.
+
+                int j = 0;
+
+                string userPostCode = Console.ReadLine();
+
+                userPostCodeList.AddRange(userPostCode);
+
+                if (!string.IsNullOrWhiteSpace(userPostCode))
+                {
+                    for (int i = userPostCodeList.Count - 1; i >= 0; i--) // Tar bort eventuella mellanslag.
+                    {
+                        if (userPostCodeList[i] == ' ')
+                        {
+                            userPostCodeList.Remove(userPostCodeList[i]);
+                        }
+                    }
+
+                    foreach (char item in userPostCodeList) // Kollar om något annat än tal angetts eller om listan innehåller fler siffror än tillåtet.
+                    {
+                        if (!Char.IsDigit(item) || userPostCodeList.Count != 5)
+                        {
+                            Console.Write("Felaktig inmatning. Försök igen: ");
+
+                            break;
+                        }
+
+                        if (j == userPostCodeList.Count - 1) // Bryter loopen om korrekt inmatning skett.
+                        {
+                            loop = false;
+                        }
+
+                        j++;
+                    }
+                }
+                else // Om inget postnummer anges.
+                {
+                    Console.Write("Ingen uppgift. Försök igen: ");
+                }
+            }
+
+            string pCode = new string(userPostCodeList.ToArray()); // Listan tillbaka som string.
+
+            if (postCode == pCode)
+            {
+                postCode = postCode.Insert(3, " "); // Formatering av postnumret.
+
+                Console.WriteLine("Det finns minst en marshall på postnummer {0}.", postCode); // FIXA EN RÄKNARE SÅ ATT DET INTE SKRIVS UT
+            }                                                                                  // IGEN OCH IGEN?
+            else
+            {
+                Console.WriteLine("Ingen träff.");
+            }
+        }
 
         //Properties
         //List
