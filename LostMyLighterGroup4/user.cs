@@ -4,8 +4,12 @@ using System.Collections.Generic;
 namespace LostMyLighterGroup4
 {
     public class user
+
     {
-      
+       
+
+
+
         private static List<user> users = new List<user>();
         private string _name;
         private int _id;
@@ -14,6 +18,86 @@ namespace LostMyLighterGroup4
         private int _antalsökning;
         private int _antalregisterade;
         private int _borttappadetänder;
+
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+        public int Ålder
+        {
+            get
+            {
+                return _ålder;
+            }
+            set
+            {
+                _ålder = value;
+            }
+        }
+        public string Adress
+        {
+            get
+            {
+                return _adress;
+            }
+            set
+            {
+                _adress = value;
+            }
+        }
+        public int Antalsökning
+        {
+            get
+            {
+                return _antalsökning;
+            }
+            set
+            {
+                _antalsökning = value;
+            }
+        }
+        public int Antalregisterade
+        {
+            get
+            {
+                return _antalregisterade;
+            }
+            set
+            {
+                _antalregisterade = value;
+            }
+        }
+        public int Borttappadetändare
+        {
+            get
+            {
+                return _borttappadetänder;
+            }
+            set
+            {
+                _borttappadetänder = value;
+            }
+        }
+
 
 
 
@@ -29,18 +113,34 @@ namespace LostMyLighterGroup4
             users.Add(this);
 
         }
+        public void  ListInfo()
+        {
+            new user("sara", 2, 22, "Käringbärget", 4, 3, 2);
+            new user("Filippa", 3, 33, "Frölunda", 5, 2, 1);
 
-        public void AntalsSökning()
-        {
-            _antalsökning++;
-            Console.WriteLine(_antalsökning);
         }
-        public static void AntalsSökningStatic(user inf)
+
+        public void Info()
         {
-            inf._antalsökning++;
-            Console.WriteLine("ID: {0}", inf._id);
-            Console.WriteLine(inf._antalsökning);
+            Console.WriteLine("Name:");
+            string name = Console.ReadLine();
+            Console.WriteLine("Id:");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ålder:");
+            int ålder = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Adress:");
+            string adress = Console.ReadLine();
+            Console.WriteLine("Antal sökning:");
+            int antals = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Antal registerade marschall:");
+            int antalr = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Antal borttapade tänder:");
+            int antalb = Convert.ToInt32(Console.ReadLine());
+
+
         }
+
+       
 
 
 
@@ -75,26 +175,55 @@ namespace LostMyLighterGroup4
                 Console.WriteLine("ANTAL BORTTAPADE TÄNDER: {0}", i._borttappadetänder);
             }
         }
-
-
+        public void AntalsSökning()
+            {
+                _antalsökning++;
+                Console.WriteLine(_antalsökning);
+            }
+            public static void AntalsSökningStatic(user veh)
+            {
+                veh._antalsökning++;
+                Console.WriteLine("ID: {0}", veh._id);
+                Console.WriteLine(veh._antalsökning);
+            }
 
         public static user GetUserById(int id)
-
         {
-
-            foreach (user i in users)
+            foreach(user i in users)
             {
-                if (i._id == id)
+                if(i._id == id)
                 {
                     return i;
+
                 }
+                else
+                {
+                    return null;
+                }
+
+                
             }
-            return null;
         }
+        /* public static void BorttTappade(user user)
+         {
+            
+         }*/
+
+
+
+
 
 
 
     }
+
+
+
+
+
+
+
+}
 
 
 
