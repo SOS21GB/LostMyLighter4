@@ -186,7 +186,7 @@ namespace LostMyLighterGroup4
                 Console.WriteLine("ID: {0}", veh._id);
                 Console.WriteLine(veh._antalsökning);
             }
-
+        /*
         public static user GetUserById(int id)
         {
             foreach(user i in users)
@@ -216,16 +216,6 @@ namespace LostMyLighterGroup4
 
 
     }
-
-
-
-
-
-
-
-}
-
-
 
 
 
