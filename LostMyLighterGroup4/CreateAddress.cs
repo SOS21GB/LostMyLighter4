@@ -6,33 +6,62 @@ using System.Threading.Tasks;
 
 namespace LostMyLighterGroup4
 {
-    // Sökfunktionen måste ta hänsyn till hur adressen lagras. Kanske bättre att formattera på annat ställe?
-    // Skriva i menyn att det går att lämna postnummerfältet tomt. Går ej på de andra fälten.
-
-    public static class CreateAddress   
+    public static class CreateAddress
     {
-       public static string AddStreet() // Ej klar.
+        public static string AddStreet()
         {
-            Console.Write("Gatuadress: ");
+            Console.WriteLine("Lägg till gatuadress. Raderna för nummer och bokstav kan lämnas tomma.");
 
-            string street = Console.ReadLine();
+            string street = "";
+
+            bool loop = true;
+
+            while (loop) // Ser till att raden inte är tom.
+            {
+                Console.Write("\nGata: ");
+
+                street = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(street))
+                {
+                    Console.Write("Ingen uppgift. Försök igen: ");
+                }
+                else
+                {
+                    loop = false;
+                }
+            }
+
+            Console.Write("\nNummer: ");
+
+            string streetNumber = Console.ReadLine();
+
+            Console.Write("\nBokstav: ");
+
+            string streetLetter = Console.ReadLine();
 
             street = street.ToLower().Trim();
 
-            return street;
+            streetNumber = streetNumber.ToLower().Trim();
+
+            streetLetter = streetLetter.ToUpper().Trim();
+
+            string streetAddress = street + " " + streetNumber + " " + streetLetter; // För att veta hur värdet är lagrat.
+
+            return streetAddress;
         }
 
         public static string AddPostCode()
         {
             Console.Write("Postnummer: ");
 
-            List<char> postCodeList = new List<char>();// Lista för att kunna justera inmatningen.
+            List<char> postCodeList = new List<char>();
 
             bool loop = true;
 
             while (loop)
             {
-                postCodeList.Clear(); // Nollställ så att loopen inte lägger till element.
+                postCodeList.Clear(); // Nollställ om loopen går igen så att det inte byggs på element.
 
                 int j = 0;
 
@@ -40,26 +69,26 @@ namespace LostMyLighterGroup4
 
                 postCodeList.AddRange(postCode);
 
-                if (!string.IsNullOrWhiteSpace(postCode))// Möjliggör att postnummerfältet lämnas tomt. ELLER GÖRA TVÄRT OM, DVS SOM PÅ DE ANDRA?
+                if (!string.IsNullOrWhiteSpace(postCode))
                 {
-                    for (int i = postCodeList.Count - 1; i >= 0; i--)// Tar bort ev. mellanslag.
+                    for (int i = postCodeList.Count - 1; i >= 0; i--) // Tar bort eventuella mellanslag.
                     {
-                        if (postCodeList[i] == ' ') 
+                        if (postCodeList[i] == ' ')
                         {
                             postCodeList.Remove(postCodeList[i]);
                         }
                     }
 
-                    foreach (char item in postCodeList)// Kollar om något annat än tal angivits eller om listan innehåller fler siffror än tillåtet.
+                    foreach (char item in postCodeList) // Kollar om något annat än tal angetts eller om listan innehåller fler siffror än tillåtet.
                     {
-                        if (!Char.IsDigit(item) || postCodeList.Count > 5)// Kan sättas till != 5 om inga inkompletta inmatningar tillåts.
+                        if (!Char.IsDigit(item) || postCodeList.Count != 5)
                         {
                             Console.Write("Felaktig inmatning. Försök igen: ");
 
                             break;
                         }
 
-                        if (j == postCodeList.Count - 1)// Bryter loopen vid korrekt inmatning.
+                        if (j == postCodeList.Count - 1) // Bryter loopen om korrekt inmatning skett.
                         {
                             loop = false;
                         }
@@ -67,28 +96,52 @@ namespace LostMyLighterGroup4
                         j++;
                     }
                 }
-                else// Om inget postnummer angivits.
+                else // Om inget postnummer anges.
                 {
-                    Console.WriteLine("Ingen uppgift.");
+                    Console.Write("Ingen uppgift. Försök igen: ");
+                }
+            }
 
+            string pCode = new string(postCodeList.ToArray()); // Listan tillbaka som string.
+
+            return pCode;
+        }
+
+        public static string AddPostTown()
+        {
+            string pTown = "";
+
+            bool loop = true;
+
+            while (loop)
+            {
+                Console.Write("\nPostort: ");
+
+                pTown = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(pTown))
+                {
+                    Console.Write("Ingen uppgift. Försök igen: ");
+                }
+                else
+                {
                     loop = false;
                 }
             }
 
-            string pCode = new string(postCodeList.ToArray());// Listan tillbaka till string.
-
-            return pCode;
-        }
-        
-        public static string AddPostTown() // Ej klar.
-        {
-            Console.Write("Postort: ");
-
-            string pTown = Console.ReadLine();
-
             pTown = pTown.ToLower().Trim();
 
-            return pTown;
+            string firstLetterUpper = pTown.Substring(0, 1);
+
+            string followingLetters = pTown.Substring(1);
+
+            firstLetterUpper = firstLetterUpper.ToUpper() + followingLetters;
+
+            return firstLetterUpper;
         }
     }
 }
+
+
+
+
