@@ -3,37 +3,54 @@ using LostMyLighterGroup4.MenuClasses;
 using System.Collections.Generic;
 
 namespace LostMyLighterGroup4
-{
+{   
     class Program
     {
-        static void Main(string[] args)
+        public static void User()
         {
-          //  Console.WriteLine(User);
-            Console.WriteLine("Vill du ta bort användaren?");
-            Console.WriteLine("1/ Ja" );
-            Console.WriteLine("2/ Nej");
-            int x = Convert.ToInt32(Console.ReadLine());
-
-            switch(x)
+            Console.WriteLine("skriv ditt namn: ");
+            try
             {
-                case 1:
-
-                   // User.Clear();
-                   // Console.WriteLine(User);
-                    Console.WriteLine("Nu är användaren borttagen");
-
-                    break;
-
-                default:
-
-                    Console.WriteLine("användaren är kvar");
-
-                    break;
-
-
+                string n = Console.ReadLine();
+               
             }
-                LogIn.CheckUser(users);
+            catch
+            {
+                Console.WriteLine("Error try again");
+            }
 
+            Console.WriteLine("skriv ditt Id: ");
+            try
+            {
+
+                int i = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Error try again");
+            }
+
+            Console.WriteLine("skriv din ålder: ");
+            try
+            {
+
+                int å = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Error try again");
+            }
+
+            Console.WriteLine("skriv din adress: ");
+            try
+            {
+
+                string a = Console.ReadLine();
+            }
+            catch
+            {
+                Console.WriteLine("Error try again");
+            }
         }
     }
 }
