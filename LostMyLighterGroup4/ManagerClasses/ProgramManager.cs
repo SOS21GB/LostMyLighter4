@@ -9,12 +9,12 @@ namespace LostMyLighterGroup4
 {
     class ProgramManager
     {
-        private int userActive;
+        private int _userActive;
         //Nån sorts metod för att avgjöra vilket meny som skall köras
         // User  ID=0 = standard??
         public void Presenter()
         {
-            switch (userActive)
+            switch (_userActive)
             {
                 default:
                     //LoggedinUserChoice(LoggedInUserMenuObject.UserMenu("Name"));
@@ -54,6 +54,10 @@ namespace LostMyLighterGroup4
                     case 8:
                         //run change user adress method
                         break;
+                    case 9:
+                    Console.WriteLine("Du loggas ut");
+                    _userActive = 0;
+                    break;
                     case 0:
                         return;
                 }
