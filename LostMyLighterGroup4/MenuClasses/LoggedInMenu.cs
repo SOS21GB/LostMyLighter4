@@ -44,19 +44,18 @@ namespace LostMyLighterGroup4.MenuClasses
         {
             PrintSeparator();
             Console.WriteLine("Användarmeny".PadLeft(19));
-            Console.WriteLine("1) Visa aktiva marschaller.");
-            Console.WriteLine("2) Sök marschall.");
-            Console.WriteLine("3) Registrera marschall.");
+            Console.WriteLine("1) Visa\\Sök marschaller.");
+            Console.WriteLine("2) Registrera marschall.");
             PrintShortSeparator();
-            Console.WriteLine("4) Anmäl borttappad tändare.");
+            Console.WriteLine("3) Anmäl borttappad tändare.");
             PrintShortSeparator();
-            Console.WriteLine("5) Visa profil.");
+            Console.WriteLine("4) Visa profil.");
             PrintShortSeparator();
             Console.WriteLine("Inställningar".PadLeft(19));
-            Console.WriteLine("6) Byt namn.");
-            Console.WriteLine("7) Ändra ålder.");
-            Console.WriteLine("8) Ändra adress.");
-            Console.WriteLine("9) Logga ut");
+            Console.WriteLine("5) Byt namn.");
+            Console.WriteLine("6) Ändra ålder.");
+            Console.WriteLine("7) Ändra adress.");
+            Console.WriteLine("8) Logga ut");
             PrintShortSeparator();
             Console.WriteLine();
             Console.WriteLine("0) Avsluta programmet.");
