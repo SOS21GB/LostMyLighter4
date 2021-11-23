@@ -9,7 +9,7 @@ namespace LostMyLighterGroup4
     class Address
     {
         private string _street;
-        private int _postCode;
+        private string _postCode;
         private string _postTown;
 
         public string Street
@@ -24,7 +24,7 @@ namespace LostMyLighterGroup4
             }
         }
 
-        public int PostCode
+        public string PostCode
         {
             get
             {
@@ -48,7 +48,7 @@ namespace LostMyLighterGroup4
             }
         }
 
-        public Address(string street, int postCode, string postTown)
+        public Address(string street, string postCode, string postTown)
         {
             this._street = street;
             this._postCode = postCode;
