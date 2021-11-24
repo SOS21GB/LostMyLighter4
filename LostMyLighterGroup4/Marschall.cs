@@ -59,7 +59,8 @@ namespace LostMyLighterGroup4
             }
         }
 
-        public static void FindStreet(string street) // Addressobjektets gata ska in här.
+        //Hitta gata
+        public static void FindStreet() // Addressobjektets gata ska in här.
         {
             Console.WriteLine("Ange adress. Raderna för nummer och bokstav kan lämnas tomma. ");
 
@@ -97,45 +98,28 @@ namespace LostMyLighterGroup4
 
             userStreetLetter = userStreetLetter.ToUpper().Trim();
 
-            string userQuery = userStreet + " " + userStreetNumber + " " + userStreetLetter; // Uppdelning och sammansättning för bättre kontroll.
+            string userQuery = userStreet + (userStreetNumber != "" ? " " + userStreetNumber : "") + (userStreetLetter != "" ? " " + userStreetLetter : ""); // Uppdelning och sammansättning för bättre kontroll.
 
-            string firstLetterUpper = userStreet.Substring(0, 1); // Formatering av utskrift.
+            string firstLetterUpper = userStreet.Substring(0, 1).ToUpper() + userStreet.Substring(1); // Formatering av utskrift.
 
-            string followingLetters = userStreet.Substring(1);
+            Console.WriteLine("---------------");
 
-            firstLetterUpper = firstLetterUpper.ToUpper() + followingLetters;
+            string marschallText = GetMarschallsString(streetSearch: userQuery);
 
-            List<char> streetList = new List<char>(); // För att få med hela gatunamnet om bara första ordet anges i en flerordig adress.
-
-            streetList.AddRange(street);
-
-            string streetAddLetters = "";
-
-            foreach (var item in streetList)
+            if (!string.IsNullOrEmpty(marschallText) && !string.IsNullOrWhiteSpace(userStreetNumber) && !string.IsNullOrWhiteSpace(userStreetLetter))
             {
-                if (!Char.IsDigit(item))
-                {
-                    streetAddLetters += item;
-                }
-                else
-                {
-                    break;
-                }
+                Console.WriteLine("\nEn marshall finns på {0} {1} {2}:", firstLetterUpper, userStreetNumber, userStreetLetter);
+                Console.WriteLine(marschallText);
             }
-
-            streetAddLetters = streetAddLetters.TrimEnd();
-
-            if (street.Equals(userQuery) && !string.IsNullOrWhiteSpace(userStreetNumber) && !string.IsNullOrWhiteSpace(userStreetLetter))
+            else if (!string.IsNullOrWhiteSpace(userStreet) && !string.IsNullOrWhiteSpace(userStreetNumber))// streetStart här och under
             {
-                Console.WriteLine("\nEn marshall finns på {0} {1} {2}.", firstLetterUpper, userStreetNumber, userStreetLetter);
+                Console.WriteLine("\nDet finns marshall(er) på {0}:", userStreet);
+                Console.WriteLine(marschallText);
             }
-            else if (streetAddLetters.Equals(userStreet) && street.Contains(userStreetNumber) && !string.IsNullOrWhiteSpace(userStreetNumber))// streetStart här och under
+            else if (!string.IsNullOrWhiteSpace(userStreet))
             {
-                Console.WriteLine("\nEn marshall finns på {0}.", street);
-            }
-            else if (streetAddLetters.Equals(userStreet) || streetAddLetters.StartsWith(userStreet))
-            {
-                Console.WriteLine("\nMinst en marschall finns någonstans på {0}", streetAddLetters);
+                Console.WriteLine("\nDin sökning på {0} gav dessa träffar:", userStreet);
+                Console.WriteLine(marschallText);
             }
             else
             {
@@ -143,7 +127,38 @@ namespace LostMyLighterGroup4
             }
         }
 
-        public static void FindPostCode(string postCode) // Adressobjektets postnummer ska in här.
+        //Returnera sträng med marschallinfo
+        private static string GetMarschallsString(string streetSearch = "", string codeSearch = "")
+        {
+            string marschallsStr = "";
+            int i = 0;
+            foreach(Marschall m in Marschalls)
+            {
+                if(!String.IsNullOrEmpty(streetSearch))
+                {
+                    if (m.Address.Street.ToLower().Contains(streetSearch.ToLower()))
+                    {
+                        i++;
+                        marschallsStr += $"ID:{m.ID} finns på {m.Address.Street}, {m.Address.PostCode} {m.Address.PostTown}.";
+                        marschallsStr += $"\nBeräknas släckas: {m.ExpectedBlowoutTime.ToString("yyyy/MM/dd HH:mm")}\n";
+                    }
+                }
+                else
+                {
+                    if (m.Address.PostCode.Contains(codeSearch))
+                    {
+                        i++;
+                        marschallsStr += $"ID:{m.ID} finns på {m.Address.Street}, {m.Address.PostCode} {m.Address.PostTown}.";
+                        marschallsStr += $"\nBeräknas släckas: {m.ExpectedBlowoutTime.ToString("yyyy/MM/dd HH:mm")}\n";
+                    }
+                }
+            }
+
+            return marschallsStr;
+        }
+
+        //Hitta postkod
+        public static void FindPostCode() // Adressobjektets postnummer ska in här.
         {
             Console.Write("Ange postnummer: ");
 
@@ -155,8 +170,6 @@ namespace LostMyLighterGroup4
             {
                 userPostCodeList.Clear(); // Nollställ om loopen går igen så att det inte byggs på element.
 
-                int j = 0;
-
                 string userPostCode = Console.ReadLine();
 
                 userPostCodeList.AddRange(userPostCode);
@@ -167,25 +180,17 @@ namespace LostMyLighterGroup4
                     {
                         if (userPostCodeList[i] == ' ')
                         {
-                            userPostCodeList.Remove(userPostCodeList[i]);
+                            userPostCodeList.RemoveAt(i);
                         }
                     }
 
-                    foreach (char item in userPostCodeList) // Kollar om något annat än tal angetts eller om listan innehåller fler siffror än tillåtet.
+                    if(int.TryParse(new String(userPostCodeList.ToArray()), out int _) && userPostCodeList.Count == 5) //Efter mellanslagsborttagning: om listan, konverterade till string, går att konvertera till int så är den giltig
                     {
-                        if (!Char.IsDigit(item) || userPostCodeList.Count != 5)
-                        {
-                            Console.Write("Felaktig inmatning. Försök igen: ");
-
-                            break;
-                        }
-
-                        if (j == userPostCodeList.Count - 1) // Bryter loopen om korrekt inmatning skett.
-                        {
-                            loop = false;
-                        }
-
-                        j++;
+                        loop = false;
+                    }
+                    else
+                    {
+                        Console.Write("Felaktig inmatning. Försök igen: ");
                     }
                 }
                 else // Om inget postnummer anges.
@@ -196,17 +201,22 @@ namespace LostMyLighterGroup4
 
             string pCode = new string(userPostCodeList.ToArray()); // Listan tillbaka som string.
 
-            if (postCode == pCode)
-            {
-                postCode = postCode.Insert(3, " "); // Formatering av postnumret.
+            string marschallStr = GetMarschallsString(codeSearch: pCode);
 
-                Console.WriteLine("Det finns minst en marshall på postnummer {0}.", postCode); // FIXA EN RÄKNARE SÅ ATT DET INTE SKRIVS UT
+            if (!string.IsNullOrWhiteSpace(marschallStr))
+            {
+                pCode = pCode.Insert(3, " "); // Formatering av postnumret.
+
+                Console.WriteLine("Det finns marschall(er) på {0}.", pCode); // FIXA EN RÄKNARE SÅ ATT DET INTE SKRIVS UT
+                Console.WriteLine(marschallStr);
             }                                                                                  // IGEN OCH IGEN?
             else
             {
                 Console.WriteLine("Ingen träff.");
             }
         }
+
+
 
         //Properties
         //List
