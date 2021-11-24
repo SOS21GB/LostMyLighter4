@@ -18,7 +18,7 @@ namespace LostMyLighterGroup4
                 Console.Write("Brand name: ");
                 string brand = Console.ReadLine();
                 Console.Write("Address: ");
-                string address = Console.ReadLine();
+                int Address = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Name of user: ");
                 string registeringUser = Console.ReadLine();
                 Console.Write("Hours of expected burn time: ");
@@ -26,7 +26,10 @@ namespace LostMyLighterGroup4
 
                 Console.WriteLine();
 
-                new Marschall(id, brand, Address, registeringUser, burntime);
+                new Marschall(id, brand, registeringUser, burntime);
+
+                Address ettAddressobjekt = new Address(CreateAddress.AddStreet(), CreateAddress.AddPostCode(), CreateAddress.AddPostTown());
+                
 
                 Marschall.PrintInfo();
 
