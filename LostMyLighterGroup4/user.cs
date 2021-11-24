@@ -3,23 +3,20 @@ using System.Collections.Generic;
 
 namespace LostMyLighterGroup4
 {
-    public class user
+    public class User
 
     {
-       
-
-
-
-        private static List<user> users = new List<user>();
+        //Fields
+        private static List<User> users = new List<User>();
         private string _name;
-        private int _id;
-        private int _ålder;
+        private int _age;
         private string _adress;
-        private int _antalsökning;
-        private int _antalregisterade;
-        private int _borttappadetänder;
+        private int _searches;
+        private int _regMarschalls;
+        private int _lostLighters;
+        private int _id;
 
-
+        //Properties
         public string Name
         {
             get
@@ -31,26 +28,16 @@ namespace LostMyLighterGroup4
                 _name = value;
             }
         }
-        public int Id
+
+        public int Age
         {
             get
             {
-                return _id;
+                return _age;
             }
             set
             {
-                _id = value;
-            }
-        }
-        public int Ålder
-        {
-            get
-            {
-                return _ålder;
-            }
-            set
-            {
-                _ålder = value;
+                _age = value;
             }
         }
         public string Adress
@@ -64,62 +51,78 @@ namespace LostMyLighterGroup4
                 _adress = value;
             }
         }
-        public int Antalsökning
+        public int Searches
         {
             get
             {
-                return _antalsökning;
+                return _searches;
             }
             set
             {
-                _antalsökning = value;
+                _searches = value;
             }
         }
-        public int Antalregisterade
+        public int ID
         {
             get
             {
-                return _antalregisterade;
+                return _id;
             }
-            set
+            set //Tillåtet att ändra sitt ID?
             {
-                _antalregisterade = value;
+                _id = value;
             }
         }
-        public int Borttappadetändare
+        public int RegisteredMarschalls
         {
             get
             {
-                return _borttappadetänder;
+                return _regMarschalls;
             }
             set
             {
-                _borttappadetänder = value;
+                _regMarschalls = value;
+            }
+        }
+        public int LostLighters
+        {
+            get
+            {
+                return _lostLighters;
+            }
+            set
+            {
+                _lostLighters = value;
             }
         }
 
 
 
-
-        public user(string n, int i, int å, string a, int s, int r, int b)
+        //Konstruktor
+        public User(string name, int age, string adress, int lostLighters)
         {
-            this._name = n;
-            this._id = i;
-            this._ålder = å;
-            this._adress = a;
-            this._antalsökning = s;
-            this._antalregisterade = r;
-            this._borttappadetänder = b;
+            this._name = name;
+            this._age = age;
+            this._adress = adress;
+            this._regMarschalls = 0;
+            this._searches = 0;
+            this._lostLighters = lostLighters;
+            this._id = AddUserID();
             users.Add(this);
 
         }
+        // Poänglös metod?
+        /*
         public void  ListInfo()
         {
             new user("sara", 2, 22, "Käringbärget", 4, 3, 2);
             new user("Filippa", 3, 33, "Frölunda", 5, 2, 1);
 
         }
+        */
 
+        //Onödig metod då detta sköts via statiska klassen?
+        /*
         public void Info()
         {
             Console.WriteLine("Name:");
@@ -136,74 +139,83 @@ namespace LostMyLighterGroup4
             int antalr = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Antal borttapade tänder:");
             int antalb = Convert.ToInt32(Console.ReadLine());
-
-
+        }
+        */
+        public static int AddUserID()
+        {
+            int newId = 1;
+            foreach (User user in users)
+            {
+                if (newId == user.ID)
+                {
+                    newId++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return newId;
         }
 
-       
-
-
-
-
-
-
-
-
-        public void PrintUser()
+            public void PrintUser()
         {
             Console.WriteLine();
             Console.WriteLine(_name);
-            Console.WriteLine(_ålder);
+            Console.WriteLine(_age);
             Console.WriteLine(_adress);
-            Console.WriteLine(_antalsökning);
-            Console.WriteLine(_antalregisterade);
-            Console.WriteLine(_borttappadetänder);
+            Console.WriteLine(_searches);
+            Console.WriteLine(_regMarschalls);
+            Console.WriteLine(_lostLighters);
         }
 
 
-
+        //Behöver vi denna metod? Admin funktion?
         public static void PrintInfo()
         {
-            foreach (user i in users)
+            foreach (User i in users)
             {
                 Console.WriteLine("NAME: {0}", i._name);
                 Console.WriteLine("ID: {0}", i._id);
-                Console.WriteLine("ÅLDER: {0}", i._ålder);
+                Console.WriteLine("ÅLDER: {0}", i._age);
                 Console.WriteLine("ADRESS: {0}", i._adress);
-                Console.WriteLine("ANTAL SÖKNING: {0}", i._antalsökning);
-                Console.WriteLine("ANTAL REGISTERADE MARSCHALLER: {0}", i._antalregisterade);
-                Console.WriteLine("ANTAL BORTTAPADE TÄNDER: {0}", i._borttappadetänder);
+                Console.WriteLine("ANTAL SÖKNING: {0}", i._searches);
+                Console.WriteLine("ANTAL REGISTERADE MARSCHALLER: {0}", i._regMarschalls);
+                Console.WriteLine("ANTAL BORTTAPADE TÄNDER: {0}", i._lostLighters);
             }
         }
-        public void AntalsSökning()
+        public void AddSearch()
             {
-                _antalsökning++;
-                Console.WriteLine(_antalsökning);
+                _searches++;
+                Console.WriteLine(_searches);
             }
-            public static void AntalsSökningStatic(user veh)
+            public static void AntalsSökningStatic(User veh)
             {
-                veh._antalsökning++;
+                veh._searches++;
                 Console.WriteLine("ID: {0}", veh._id);
-                Console.WriteLine(veh._antalsökning);
+                Console.WriteLine(veh._searches);
             }
 
+
+        //Denna metoden fungerar inte.får inte returnerna null? Behöver vi denna ens?
+        /*
         public static user GetUserById(int id)
+
         {
-            foreach(user i in users)
+            foreach(User i in users)
             {
                 if(i._id == id)
                 {
                     return i;
-
                 }
                 else
                 {
                     return null;
                 }
-
-                
             }
         }
+        */
+
         /* public static void BorttTappade(user user)
          {
             
