@@ -34,9 +34,8 @@ namespace LostMyLighterGroup4
 				Console.WriteLine("skriv ditt Id: ");
 				try
 				{
-
-
 					int _id = Convert.ToInt32(Console.ReadLine());
+					i++;
 				}
 				catch
 				{
