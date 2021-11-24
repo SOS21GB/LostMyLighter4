@@ -9,18 +9,21 @@ namespace LostMyLighterGroup4
 {
     class ProgramManager
     {
+        //Behålla dessa här eller ta bort?
+        MenuClasses.LoggedInMenu lMenu = new MenuClasses.LoggedInMenu();
+        MenuClasses.StandardMenu stMenu = new MenuClasses.StandardMenu();
         private int _userActive;
-        //Nån sorts metod för att avgjöra vilket meny som skall köras
-        // User  ID=0 = standard??
         public void Presenter()
         {
+            Console.Clear();
             switch (_userActive)
             {
                 default:
-                    //LoggedinUserChoice(LoggedInUserMenuObject.UserMenu("Name"));
+                    //ÄNDRA "Name"
+                    LoggedinUserChoice(lMenu.UserMenu("Name"));
                     break;
                 case 0:
-                    //StandardUserChoice( standarMenuObject.MainMenu());
+                    StandardUserChoice(stMenu.MainMenu());
                     break;
             }
         }
@@ -31,30 +34,27 @@ namespace LostMyLighterGroup4
                 switch (selection)
                 {
                     case 1:
-                        //run print active marschalls method
+                        //run marschall search menu
                         break;
                     case 2:
-                        //run search marschalls method
-                        break;
-                    case 3:
                         //run create new marschall method
                         break;
-                    case 4:
+                    case 3:
                         //run add lostlighter method
                         break;
-                    case 5:
+                    case 4:
                         // run print profile info method
                         break;
-                    case 6:
+                    case 5:
                         // run change user name method
                         break;
-                    case 7:
+                    case 6:
                         //run change age method
                         break;
-                    case 8:
+                    case 7:
                         //run change user adress method
                         break;
-                    case 9:
+                    case 8:
                     Console.WriteLine("Du loggas ut");
                     _userActive = 0;
                     break;
@@ -71,14 +71,14 @@ namespace LostMyLighterGroup4
             switch(selection)
             {
                 case 1:
-                    //run print active marschalls method
+                    //run marschall search menu
                     break;
                 case 2:
                     //run create new marschall method or constructor
                     break;
                 case 3:
-                    // - Skall GetAllIDs vara objektbaserad eller static ??
-                    //LogIn.CheckUser(ManagerClasses.UserManager.GetAllIDs());
+                    // OBS TA BORT REFERENS TILL DUMMYUSER
+                    _userActive = LogIn.LogIn.CheckUser(LogIn.DummyUser.UsersIDS.Keys.ToList());
                     break;
                 case 4:
                     //create new user method or constructor
@@ -88,11 +88,10 @@ namespace LostMyLighterGroup4
             }
             Presenter();
         }
-        //Konstruktor som samtidigt skapar nytt standarmeny-objekt och kör menymetoden, vet inte ifall vi skall göra så här       
+        //Konstruktor
        public ProgramManager()
         {
 
         }
-
     }
 }
