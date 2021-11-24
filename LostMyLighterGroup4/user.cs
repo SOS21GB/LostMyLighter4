@@ -195,10 +195,11 @@ namespace LostMyLighterGroup4
                 Console.WriteLine("ID: {0}", veh._id);
                 Console.WriteLine(veh._searches);
             }
-      
+
         //Denna metoden fungerar inte.får inte returnerna null? Behöver vi denna ens?
         /*
         public static User GetUserById(int id)
+
         {
             foreach(User i in users)
             {
