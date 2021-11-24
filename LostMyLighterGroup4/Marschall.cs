@@ -8,7 +8,7 @@ namespace LostMyLighterGroup4
 {
     class Marschall
     {
-        private static List<Marschall> marschalls = new List<Marschall>();
+        public static List<Marschall> marschalls = new List<Marschall>();
 
         //Id, Märke, Förväntad brinntid, Adress, Tid för registrering, Vilken användare som registrerade den, När den förväntas slockna
         private int _id;
@@ -44,7 +44,30 @@ namespace LostMyLighterGroup4
             Console.WriteLine("Expected blow out time: {0}", _expectedBlowoutTime);
         }
 
-
+        public static void PrintAllInfo()
+        {
+            foreach (Marschall v in Marschall.marschalls)
+            {
+                Console.WriteLine("ID: {0}", v.ID);
+                Console.WriteLine("Brand: {0}", v.Brand);
+                Console.WriteLine("Address: {0}", v.Address);
+                Console.WriteLine("Registering user: {0}", v.RegisteringUser);
+                Console.WriteLine("Date of registration: {0}", v.RegistrationDate);
+                Console.WriteLine("Expected burn time: {0}", v.ExpectedBurnTime);
+                Console.WriteLine("Expected blow out time: {0}", v.ExpectedBlowoutTime);
+            }
+        }
+        public static Marschall GetMarschall(int id)
+        {
+            foreach (Marschall v in marschalls)
+            {
+                if (v._id == id)
+                {
+                    return v;
+                }
+            }
+            return null;
+        }
 
         //Properties
         //List
