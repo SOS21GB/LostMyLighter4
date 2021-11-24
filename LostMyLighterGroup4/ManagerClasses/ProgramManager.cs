@@ -10,17 +10,20 @@ namespace LostMyLighterGroup4
     class ProgramManager
     {
         //Behålla dessa här eller ta bort?
+
         MenuClasses.LoggedInMenu lMenu = new MenuClasses.LoggedInMenu();
         MenuClasses.StandardMenu stMenu = new MenuClasses.StandardMenu();
-        private int _userActive;
+        private static int _userActive;
+        
         public void Presenter()
         {
             Console.Clear();
             switch (_userActive)
             {
+                
                 default:
-                    //ÄNDRA "Name"
-                    LoggedinUserChoice(lMenu.UserMenu("Name"));
+                    User currentUser = User.GetUserById(_userActive);
+                    LoggedinUserChoice(lMenu.UserMenu(currentUser.Name));
                     break;
                 case 0:
                     StandardUserChoice(stMenu.MainMenu());
@@ -34,7 +37,9 @@ namespace LostMyLighterGroup4
                 switch (selection)
                 {
                     case 1:
-                        //run marschall search menu
+                    Console.Clear();
+                    MenuClasses.SearchMenu MSMenu = new MenuClasses.SearchMenu();
+                    MSMenu.SearchAndPrintMenu();
                         break;
                     case 2:
                         //run create new marschall method
@@ -43,7 +48,8 @@ namespace LostMyLighterGroup4
                         //run add lostlighter method
                         break;
                     case 4:
-                        // run print profile info method
+                    User currentUser = User.GetUserById(_userActive);
+                    currentUser.PrintUser();
                         break;
                     case 5:
                         // run change user name method
@@ -71,14 +77,15 @@ namespace LostMyLighterGroup4
             switch(selection)
             {
                 case 1:
-                    //run marschall search menu
+                    Console.Clear();
+                    MenuClasses.SearchMenu MSMenu = new MenuClasses.SearchMenu();
+                    MSMenu.SearchAndPrintMenu();
                     break;
                 case 2:
                     //run create new marschall method or constructor
                     break;
                 case 3:
-                    // OBS TA BORT REFERENS TILL DUMMYUSER
-                    _userActive = LogIn.LogIn.CheckUser(LogIn.DummyUser.UsersIDS.Keys.ToList());
+                    _userActive = LogIn.LogIn.CheckUser(User.UserIDList());
                     break;
                 case 4:
                     //create new user method or constructor
