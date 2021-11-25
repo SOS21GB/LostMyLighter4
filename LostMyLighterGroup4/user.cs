@@ -201,6 +201,7 @@ namespace LostMyLighterGroup4
 
         public static void AddLostLighter(User users)
         {
+            Console.Clear();
             bool loop = true;
 
             while (loop)    
@@ -211,6 +212,7 @@ namespace LostMyLighterGroup4
 
                 if (userInput)  
                 {
+                    Console.WriteLine("{0} borttappade tändare har registrerats", lighter);
                     users._lostLighters += lighter;
                     loop = false;
                 }
@@ -219,6 +221,8 @@ namespace LostMyLighterGroup4
                     Console.Write("Felaktig inmatning. Försök igen: ");
                 }
             }
+            Console.WriteLine("Tryck på valfri tangent för att fortsätta..");
+            Console.ReadKey();
         }
 
     }

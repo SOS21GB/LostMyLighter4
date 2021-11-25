@@ -15,6 +15,8 @@ namespace LostMyLighterGroup4
         MenuClasses.StandardMenu stMenu = new MenuClasses.StandardMenu();
         private static int _userActive;
         
+
+
         public void Presenter()
         {
             Console.Clear();
@@ -33,8 +35,8 @@ namespace LostMyLighterGroup4
         //Kör metoder beroende på val från LoggedInMenu objekt
         public void LoggedinUserChoice(int selection)
         {
-
-                switch (selection)
+            User currentUser = User.GetUserById(_userActive);
+            switch (selection)
                 {
                     case 1:
                     Console.Clear();
@@ -45,10 +47,10 @@ namespace LostMyLighterGroup4
                         //run create new marschall method
                         break;
                     case 3:
-                        //run add lostlighter method
+                    User.AddLostLighter(currentUser);
                         break;
                     case 4:
-                    User currentUser = User.GetUserById(_userActive);
+                    
                     currentUser.PrintUser();
                         break;
                     case 5:
