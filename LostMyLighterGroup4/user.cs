@@ -112,7 +112,10 @@ namespace LostMyLighterGroup4
             this._id = AddUserID();
             users.Add(this);
         }
+        
+        //Metoder
 
+        //Skapar ID
         public static int AddUserID()
         {
             int newId = 1;
@@ -130,46 +133,47 @@ namespace LostMyLighterGroup4
             return newId;
         }
 
+        //Visar info
         public void PrintUser()
         {
             Console.Clear();
-            Console.WriteLine("NAME: {0}", _name);
+            Console.WriteLine("Namn: {0}", _name);
             Console.WriteLine("ID: {0}", _id);
-            Console.WriteLine("ÅLDER: {0}", _age);
-            Console.WriteLine("ADRESS: {0}", _address);
-            Console.WriteLine("ANTAL SÖKNING: {0}", _searches);
-            Console.WriteLine("ANTAL REGISTERADE MARSCHALLER: {0}", _regMarschalls);
-            Console.WriteLine("ANTAL BORTTAPADE TÄNDER: {0}", _lostLighters);
-            Console.WriteLine("\n tryck på valfri tangent för att återgå..");
+            Console.WriteLine("Ålder: {0}", _age);
+            Console.WriteLine("Adress: {0}", _address);
+            Console.WriteLine("Antal sökningar: {0}", _searches);
+            Console.WriteLine("Antal registrerade marschaller: {0}", _regMarschalls);
+            Console.WriteLine("Antal borttappade tändare: {0}", _lostLighters);
+            Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny..");
             Console.ReadKey();
         }
 
 
-        //Behöver vi denna metod? Admin funktion?
+        //Listar alla användare, behöver vi denna metod? Admin funktion?
         public static void PrintInfo()
         {
+            Console.Clear();
             foreach (User i in users)
             {
-                Console.WriteLine("NAME: {0}", i._name);
+                Console.WriteLine("Namn: {0}", i._name);
                 Console.WriteLine("ID: {0}", i._id);
-                Console.WriteLine("ÅLDER: {0}", i._age);
-                Console.WriteLine("ADRESS: {0}", i._address);
-                Console.WriteLine("ANTAL SÖKNING: {0}", i._searches);
-                Console.WriteLine("ANTAL REGISTERADE MARSCHALLER: {0}", i._regMarschalls);
-                Console.WriteLine("ANTAL BORTTAPADE TÄNDER: {0}", i._lostLighters);
+                Console.WriteLine("Ålder: {0}", i._age);
+                Console.WriteLine("Adress: {0}", i._address);
+                Console.WriteLine("Antal sökningar: {0}", i._searches);
+                Console.WriteLine("Antal registrerade marschaller: {0}", i._regMarschalls);
+                Console.WriteLine("Antal borttappade tändare: {0} \n", i._lostLighters);
             }
+            Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny..");
+            Console.ReadKey();
         }
-        public void AddSearch()
+        //Ökar sökningscountern, osäker om vi skall ha en utskrift.
+        public static void AddSearch(User veh)
         {
-            _searches++;
-            Console.WriteLine(_searches);
+            veh.Searches++;
+            Console.WriteLine("ID: {0}", veh.Searches);
         }
-        public static void AntalsSökningStatic(User veh)
-        {
-            veh._searches++;
-            Console.WriteLine("ID: {0}", veh._id);
-            Console.WriteLine(veh._searches);
-        }
+
+
         //Metod som lägger alla Id i en lista och returnerar den.
         public static List<int> UserIDList()
         {
@@ -181,6 +185,8 @@ namespace LostMyLighterGroup4
             return userIDList;
         }
 
+
+        //returnerar användarobjekt beroende på ID
         public static User GetUserById(int id)
         {
             foreach (User i in users)
