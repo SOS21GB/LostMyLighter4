@@ -106,20 +106,23 @@ namespace LostMyLighterGroup4
 
             string marschallText = GetMarschallsString(streetSearch: userQuery);
 
-            if (!string.IsNullOrEmpty(marschallText) && !string.IsNullOrWhiteSpace(userStreetNumber) && !string.IsNullOrWhiteSpace(userStreetLetter))
+            if (!string.IsNullOrEmpty(marschallText))
             {
-                Console.WriteLine("\nEn marshall finns på {0} {1} {2}:", firstLetterUpper, userStreetNumber, userStreetLetter);
-                Console.WriteLine(marschallText);
-            }
-            else if (!string.IsNullOrWhiteSpace(userStreet) && !string.IsNullOrWhiteSpace(userStreetNumber))// streetStart här och under
-            {
-                Console.WriteLine("\nDet finns marshall(er) på {0}:", userStreet);
-                Console.WriteLine(marschallText);
-            }
-            else if (!string.IsNullOrWhiteSpace(userStreet))
-            {
-                Console.WriteLine("\nDin sökning på {0} gav dessa träffar:", userStreet);
-                Console.WriteLine(marschallText);
+                if (!string.IsNullOrWhiteSpace(userStreet) && !string.IsNullOrWhiteSpace(userStreetNumber) && !string.IsNullOrWhiteSpace(userStreetLetter))
+                {
+                    Console.WriteLine("\nEn marshall finns på {0} {1} {2}:", firstLetterUpper, userStreetNumber, userStreetLetter);
+                    Console.WriteLine(marschallText);
+                }
+                else if (!string.IsNullOrWhiteSpace(userStreet) && !string.IsNullOrWhiteSpace(userStreetNumber))// streetStart här och under
+                {
+                    Console.WriteLine("\nDet finns marshall(er) på {0} {1}:", userStreet, userStreetNumber);
+                    Console.WriteLine(marschallText);
+                }
+                else if (!string.IsNullOrWhiteSpace(userStreet))
+                {
+                    Console.WriteLine("\nDin sökning på {0} gav dessa träffar:", userStreet);
+                    Console.WriteLine(marschallText);
+                }
             }
             else
             {
