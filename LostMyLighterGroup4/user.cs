@@ -199,5 +199,27 @@ namespace LostMyLighterGroup4
             return null;
         }
 
+        public static void AddLostLighter(User users)
+        {
+            bool loop = true;
+
+            while (loop)    
+            {
+                Console.Write("Antal borttappade tändndare att registera: ");   
+
+                bool userInput = int.TryParse(Console.ReadLine(), out int lighter);
+
+                if (userInput)  
+                {
+                    users._lostLighters += lighter;
+                    loop = false;
+                }
+                else
+                {
+                    Console.Write("Felaktig inmatning. Försök igen: ");
+                }
+            }
+        }
+
     }
 }
