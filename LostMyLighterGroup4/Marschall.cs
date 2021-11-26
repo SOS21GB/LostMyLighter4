@@ -20,7 +20,6 @@ namespace LostMyLighterGroup4
         private DateTime _expectedBlowoutTime = DateTime.Now;
 
         public Marschall(string _brand, Address _address, string _registeringUser, double _expectedBurnTime)
-
         {
             this._id = marschalls.Count + 1;
             this._brand = _brand;
@@ -35,9 +34,9 @@ namespace LostMyLighterGroup4
 
         public void PrintInfo()
         { 
-            Console.WriteLine("ID: {0}. Brand: {1}. Address: {2}", _id, _brand, _address.Street);
-            Console.WriteLine("   Registered by: {0} on {1} at {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
-            Console.WriteLine( "   Expected blow out: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
+            Console.WriteLine("ID: {0}. Märke: {1}. Adress: {2} {3}, {4}.", _id, _brand, _address.Street, _address.PostCode, _address.PostTown);
+            Console.WriteLine("   Registrerad av: {0} den {1} vid {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
+            Console.WriteLine( "   Väntad slockningstid: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
         }
 
 
@@ -130,7 +129,7 @@ namespace LostMyLighterGroup4
             }
         }
 
-        //Returnera sträng med marschallinfo
+        //Returnera sträng med flera marschallers info
         private static string GetMarschallsString(string streetSearch = "", string codeSearch = "")
         {
             string marschallsStr = "";
