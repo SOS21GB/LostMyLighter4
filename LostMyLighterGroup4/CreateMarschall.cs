@@ -10,29 +10,40 @@ namespace LostMyLighterGroup4
     {
         public static void CreateMarschalls()
         {
-            //Input by user
+            Console.WriteLine("Ange marschallinformation.");
 
-            //Console.Write("ID no. : ");
-            //int id = Convert.ToInt32(Console.ReadLine()); Id behöves inte, utan läggs till automatiskt - se konstruktorn i Marschall.
-            Console.Write("Brand name: ");
+            Console.Write("\nMärke: ");
             string brand = Console.ReadLine();
-            Console.Write("Address: ");
+
+            Console.Write("\nAddress: ");
             Address address = new Address(CreateAddress.AddStreet(), CreateAddress.AddPostCode(), CreateAddress.AddPostTown());
-            Console.Write("Användare: ");
+
+            Console.Write("\nDitt namn: ");
             string registeringUser = Console.ReadLine();
-            Console.Write("Hours of expected burn time: ");
-            double burntime = Convert.ToDouble(Console.ReadLine());
 
-            new Marschall(brand, address, registeringUser, burntime);
+            Console.Write("\nFörväntad brinntid: ");
 
-            
+            double burntime = 0;
+            bool loop = true;
 
-            Console.WriteLine();
+            while (loop)
+            {
+                if (double.TryParse(Console.ReadLine(), out burntime))
+                {
+                    loop = false;
+                }
+                else
+                {
+                    Console.Write("\nFelaktig inmatning. Försök igen: ");
+                }
+            }
+
+            Marschall marshall = new Marschall(brand, address, registeringUser, burntime);
+
+            marshall.PrintInfo();
+
         }
-
-        
     }
-
 }
 
 
