@@ -8,16 +8,19 @@ namespace LostMyLighterGroup4
 {
     class ChangeStreet
     {
-        public static void ÄndraGata()
+
+        public static void ÄndraGata(int id)
         {
+            
+
             string street = "";
             Console.WriteLine("Skriv in din nya gata: ");
 
             street = Console.ReadLine();
 
-            Console.WriteLine("Din nya gata är: { }", street);
+            Console.WriteLine("Din nya gata är: {0}", street);
 
-
+            User.GetUserById(id).Address = street;
 
 
         }
