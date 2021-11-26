@@ -91,6 +91,9 @@ namespace LostMyLighterGroup4
                     break;
                 case 4:
                     //create new user method or constructor
+                    Console.Clear();
+                    InputUser.UserCreate();
+
                     break;
                 case 0:
                     return;
