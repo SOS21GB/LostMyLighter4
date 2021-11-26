@@ -20,19 +20,54 @@ namespace LostMyLighterGroup4.MenuClasses
                 switch (userInput)
                 {
                     case "1":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                        break;
                     case "2":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                        break;
                     case "3":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                        break;
                     case "4":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                        break;
                     case "5":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                        break;
                     case "6":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                        break;
                     case "7":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                        break;
                     case "8":
+                        Console.Clear();
+                        // Metod
+                        SearchMenu.UserKeyPressToContinue();
+                       // break; Return låg här sedan tidigare.
                         return int.Parse(userInput);
                     case "0":
+                        Console.Clear();
                         Console.WriteLine("Avslutar programmet. Hejdå.");
                         return 0;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Felaktig inmatning. Försök igen!");
+                        SearchMenu.UserKeyPressToContinue();
                         break;
                 }
             }
@@ -59,6 +94,7 @@ namespace LostMyLighterGroup4.MenuClasses
             Console.WriteLine();
             Console.WriteLine("0) Avsluta programmet.");
             PrintSeparator();
+            Console.Write("Ditt val: ");
         }
 
 

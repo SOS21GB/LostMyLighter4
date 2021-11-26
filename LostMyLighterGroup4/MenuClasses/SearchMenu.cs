@@ -21,26 +21,22 @@ namespace LostMyLighterGroup4.MenuClasses
                     case "1":   
                         Console.Clear();
                         Marschall.FindStreet();
-                        Console.WriteLine("\nTryck på valfri tangent för att fortsätta.");
-                        Console.ReadKey();
+                        UserKeyPressToContinue();
                         break;
                     case "2":
                         Console.Clear();
                         Marschall.FindPostCode();
-                        Console.WriteLine("\nTryck på valfri tangent för att fortsätta.");
-                        Console.ReadKey();
+                        UserKeyPressToContinue();
                         break;
                     case "3":
                         Console.Clear();
                         Marschall.PrintActiveMarschalls();
-                        Console.WriteLine("\nTryck på valfri tangent för att fortsätta.");
-                        Console.ReadKey();
+                        UserKeyPressToContinue();
                         break;
                     case "4":
                         Console.Clear();
                         Marschall.PrintAllMarschalls();
-                        Console.WriteLine("\nTryck på valfri tangent för att fortsätta.");
-                        Console.ReadKey();
+                        UserKeyPressToContinue();
                         break;
                     case "0":
                         Console.Clear();
@@ -48,8 +44,7 @@ namespace LostMyLighterGroup4.MenuClasses
                     default:
                         Console.Clear();
                         Console.WriteLine("Felaktig inmatning. Försök igen.");
-                        Console.WriteLine("\nTryck på valfri tangent för att fortsätta.");
-                        Console.ReadKey();
+                        UserKeyPressToContinue();
                         break;
                 }
             }
@@ -71,7 +66,7 @@ namespace LostMyLighterGroup4.MenuClasses
             Console.Write("Ditt val: ");
         }
 
-        #region Hjälpmetod
+        #region Hjälpmetoder
         //Printar separatorer till menyn
         private void PrintShortSeparator2()
         {
@@ -81,6 +76,14 @@ namespace LostMyLighterGroup4.MenuClasses
         {
             Console.WriteLine("*--------------------------------------------*");
         }
+        public static void UserKeyPressToContinue() 
+        {
+            Console.WriteLine("\nTryck på valfri tangent för att fortsätta.");
+            Console.ReadKey();
+        }
+
+
+
         #endregion
 
 
