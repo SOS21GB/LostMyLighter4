@@ -59,7 +59,7 @@ namespace LostMyLighterGroup4
         }
 
         //Hitta gata
-        public static void FindStreet() // Addressobjektets gata ska in här.
+        public static void FindStreet() 
         {
             Console.WriteLine("Ange adress. Raderna för nummer och bokstav kan lämnas tomma. ");
 
@@ -112,7 +112,7 @@ namespace LostMyLighterGroup4
                     Console.WriteLine("\nEn marshall finns på {0} {1} {2}:", firstLetterUpper, userStreetNumber, userStreetLetter);
                     Console.WriteLine(marschallText);
                 }
-                else if (!string.IsNullOrWhiteSpace(userStreet) && !string.IsNullOrWhiteSpace(userStreetNumber))// streetStart här och under
+                else if (!string.IsNullOrWhiteSpace(userStreet) && !string.IsNullOrWhiteSpace(userStreetNumber))
                 {
                     Console.WriteLine("\nDet finns marshall(er) på {0} {1}:", userStreet, userStreetNumber);
                     Console.WriteLine(marschallText);
@@ -160,7 +160,7 @@ namespace LostMyLighterGroup4
         }
 
         //Hitta postkod
-        public static void FindPostCode() // Adressobjektets postnummer ska in här.
+        public static void FindPostCode()
         {
             Console.Write("Ange postnummer: ");
 
@@ -209,9 +209,9 @@ namespace LostMyLighterGroup4
             {
                 pCode = pCode.Insert(3, " "); // Formatering av postnumret.
 
-                Console.WriteLine("Det finns marschall(er) på {0}.", pCode); // FIXA EN RÄKNARE SÅ ATT DET INTE SKRIVS UT
+                Console.WriteLine("Det finns marschall(er) på {0}.", pCode); 
                 Console.WriteLine(marschallStr);
-            }                                                                                  // IGEN OCH IGEN?
+            }                                                                                
             else
             {
                 Console.WriteLine("Ingen träff.");
