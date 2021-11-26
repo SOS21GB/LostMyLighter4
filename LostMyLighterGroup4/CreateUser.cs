@@ -86,6 +86,7 @@ namespace LostMyLighterGroup4
 			User user = new User(name, age, address, lostLighters);
 			user.PrintUser();
 
+			MenuClasses.SearchMenu.UserKeyPressToContinue();
 		}
 
 	}
