@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace LostMyLighterGroup4
 {
+
     class Program
     {
         static void Main(string[] args)
@@ -14,4 +15,5 @@ namespace LostMyLighterGroup4
             pMan.Presenter();
         }
     }
+
 }
