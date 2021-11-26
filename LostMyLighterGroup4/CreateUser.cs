@@ -75,7 +75,7 @@ namespace LostMyLighterGroup4
 				try
 				{
 					lostLighters = Convert.ToInt32(Console.ReadLine());
-
+					i++;
 				}
 				catch
 				{
