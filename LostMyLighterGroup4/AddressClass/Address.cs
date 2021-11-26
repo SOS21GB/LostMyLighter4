@@ -18,7 +18,7 @@ namespace LostMyLighterGroup4
             {
                 return _street;
             }
-            set 
+            set
             {
                 _street = value;
             }
@@ -36,9 +36,9 @@ namespace LostMyLighterGroup4
             }
         }
 
-        public string postTown
+        public string PostTown
         {
-            get 
+            get
             {
                 return _postTown;
             }

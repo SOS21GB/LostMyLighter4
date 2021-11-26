@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {}
+    "C:\\Users\\patri\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {
+    "C:\\Users\\patri\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
         "projectName": "LostMyLighterGroup4",
-        "projectPath": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
-        "packagesPath": "C:\\Users\\Jocke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jocke\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\obj\\",
+        "projectPath": "C:\\Users\\patri\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\LostMyLighterGroup4.csproj",
+        "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\patri\\Source\\Repos\\LostMyLighter4\\LostMyLighterGroup4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jocke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

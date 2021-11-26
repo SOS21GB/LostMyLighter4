@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LostMyLighterGroup4.MenuClasses
+namespace LostMyLighterGroup4.LogIn
 {
     static class LogIn
     {
@@ -16,13 +16,17 @@ namespace LostMyLighterGroup4.MenuClasses
             {
                 bool userFound = false;
                 int userID=0;
-                Console.Write("Skriv in ditt användar-ID: ");
+                Console.Write("Skriv in ditt användar-ID, eller välj \"0\" för att gå tillbaka: ");
                 try
                 {
                     userID = Convert.ToInt32(Console.ReadLine());
                 }
                 catch(Exception)
                 {
+                }
+                if(userID==0)
+                {
+                    return 0;
                 }
                 foreach (int item in userIDList)
                 {
