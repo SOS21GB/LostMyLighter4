@@ -50,7 +50,6 @@ namespace LostMyLighterGroup4
                     User.AddLostLighter(currentUser);
                         break;
                     case 4:
-                    
                     currentUser.PrintUser();
                         break;
                     case 5:
@@ -62,8 +61,13 @@ namespace LostMyLighterGroup4
                     case 7:
                         //run change user adress method
                         break;
-                    case 8:
+                case 8:
+                    bool delete = User.DeleteUser(_userActive);
+                    _userActive = delete == true ? 0: _userActive;
+                    break;
+                    case 9:
                     Console.WriteLine("Du loggas ut");
+                    MenuClasses.SearchMenu.UserKeyPressToContinue();
                     _userActive = 0;
                     break;
                     case 0:
@@ -87,6 +91,7 @@ namespace LostMyLighterGroup4
                     //run create new marschall method or constructor
                     break;
                 case 3:
+                    Console.Clear();
                     _userActive = LogIn.LogIn.CheckUser(User.UserIDList());
                     break;
                 case 4:
