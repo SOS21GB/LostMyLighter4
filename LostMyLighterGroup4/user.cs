@@ -231,11 +231,9 @@ namespace LostMyLighterGroup4
 
             while (loop)    
             {
-                Console.Write("Antal borttappade tändare att registera: ");   
+                Console.Write("Antal borttappade tändare att registera: ");     
 
-                bool userInput = int.TryParse(Console.ReadLine(), out int lighter);
-
-                if (userInput)  
+                if (int.TryParse(Console.ReadLine(), out int lighter))
                 {
                     Console.WriteLine("{0} borttappade tändare har registrerats", lighter);
                     users._lostLighters += lighter;
