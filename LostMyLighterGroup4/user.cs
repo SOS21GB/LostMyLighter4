@@ -71,10 +71,6 @@ namespace LostMyLighterGroup4
             {
                 return _id;
             }
-            set //Tillåtet att ändra sitt ID?
-            {
-                _id = value;
-            }
         }
         public int RegisteredMarschalls
         {
@@ -116,7 +112,7 @@ namespace LostMyLighterGroup4
         //Metoder
 
         //Skapar ID
-        public static int AddUserID()
+        private int AddUserID()
         {
             int newId = 1;
             foreach (User user in users)
@@ -137,14 +133,11 @@ namespace LostMyLighterGroup4
         public void PrintUser()
         {
             Console.Clear();
-            Console.WriteLine("Namn: {0}", _name);
-            Console.WriteLine("ID: {0}", _id);
-            Console.WriteLine("Ålder: {0}", _age);
-            Console.WriteLine("Adress: {0}", _address);
-            Console.WriteLine("Antal sökningar: {0}", _searches);
-            Console.WriteLine("Antal registrerade marschaller: {0}", _regMarschalls);
-            Console.WriteLine("Antal borttappade tändare: {0}", _lostLighters);
-            Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny..");
+            Console.WriteLine("ID:{0}. Namn: {0}.", _id, _name);
+            Console.WriteLine("Ålder: {0}. Adress: {1}", _age, _address);
+            Console.WriteLine("Sökningar: {0}. Registrerade marschaller: {1}. Borttappade tändare: {3}.", _searches, _regMarschalls, _lostLighters);
+            Console.WriteLine();
+            Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny...");
             Console.ReadKey();
         }
 
@@ -166,11 +159,11 @@ namespace LostMyLighterGroup4
             Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny..");
             Console.ReadKey();
         }
-        //Ökar sökningscountern, osäker om vi skall ha en utskrift.
-        public static void AddSearch(User veh)
+
+        //Ökar sökningscountern
+        public static void AddSearch(User u)
         {
-            veh.Searches++;
-            Console.WriteLine("ID: {0}", veh.Searches);
+            u.Searches++;
         }
 
 
@@ -178,9 +171,9 @@ namespace LostMyLighterGroup4
         public static List<int> UserIDList()
         {
             List<int> userIDList = new List<int>();
-            foreach (User user in users)
+            foreach (User u in users)
             {
-                userIDList.Add(user.ID);
+                userIDList.Add(u.ID);
             }
             return userIDList;
         }
@@ -197,6 +190,20 @@ namespace LostMyLighterGroup4
                 }
             }
             return null;
+        }
+
+        //Tar bort en användare om id kan hittas i listan
+        public static void DeleteUser(int id)
+        {
+            foreach (User i in users)
+            {
+                if (i.ID == id)
+                {
+                    users.Remove(i);
+                    Console.WriteLine("Användare borttagen.");
+                    return;
+                }
+            }
         }
 
         public static void AddLostLighter(User users)
