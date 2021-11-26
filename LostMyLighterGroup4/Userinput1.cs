@@ -10,10 +10,10 @@ namespace LostMyLighterGroup4
 	{
 		public static void UserCreate()
 		{
-			string name;
-			int age;
-			string address;
-			int lostLighters;
+			string name = "";
+			int age = 0;
+			string address = "";
+			int lostLighters = 0;
 
 			int i = 0;
 
