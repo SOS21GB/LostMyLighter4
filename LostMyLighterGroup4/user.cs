@@ -193,15 +193,33 @@ namespace LostMyLighterGroup4
         }
 
         //Tar bort en användare om id kan hittas i listan
-        public static void DeleteUser(int id)
+        public static bool DeleteUser(int id)
         {
-            foreach (User i in users)
+            Console.Clear();
+            Console.WriteLine("Är du säker på att du vill ta bort din användarprofil ? \nTryck (1) för att fortsätta, eller (0) för att avbryta");
+            while (true)
             {
-                if (i.ID == id)
+                Console.Write("Ditt val: ");
+                string choice = Console.ReadLine();
+                switch (choice)
                 {
-                    users.Remove(i);
-                    Console.WriteLine("Användare borttagen.");
-                    return;
+                    case "1":
+                        foreach (User i in users)
+                        {
+                            if (i.ID == id)
+                            {
+                                users.Remove(i);
+                                Console.WriteLine("Användare borttagen.");
+                                MenuClasses.SearchMenu.UserKeyPressToContinue();
+                                return true;
+                            }
+                        }
+                        break;
+                    case "0":
+                        return false;
+                    default:
+                        Console.WriteLine("Ogiltigt val");
+                        break;
                 }
             }
         }
