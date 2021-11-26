@@ -23,6 +23,8 @@ namespace LostMyLighterGroup4.LogIn
                 }
                 catch(Exception)
                 {
+                    Console.WriteLine("Ogiltigt ID. Försök igen.");
+                    continue;
                 }
                 if(userID==0)
                 {
@@ -35,7 +37,7 @@ namespace LostMyLighterGroup4.LogIn
                         userFound = true;
                     }
                 }
-                    switch (userFound)
+                switch (userFound)
                 {
                     case true:
                         //PasswordCheckMethod();

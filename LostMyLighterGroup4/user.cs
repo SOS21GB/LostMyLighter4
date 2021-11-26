@@ -135,7 +135,7 @@ namespace LostMyLighterGroup4
             Console.Clear();
             Console.WriteLine("ID:{0}. Namn: {0}.", _id, _name);
             Console.WriteLine("Ålder: {0}. Adress: {1}", _age, _address);
-            Console.WriteLine("Sökningar: {0}. Registrerade marschaller: {1}. Borttappade tändare: {3}.", _searches, _regMarschalls, _lostLighters);
+            Console.WriteLine("Sökningar: {0}. Registrerade marschaller: {1}. Borttappade tändare: {2}.", _searches, _regMarschalls, _lostLighters);
             Console.WriteLine();
             Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny...");
             Console.ReadKey();
