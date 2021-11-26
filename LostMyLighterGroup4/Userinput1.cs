@@ -8,12 +8,8 @@ namespace LostMyLighterGroup4
 {
 	public static class InputUser
 	{
-
-
-
 		public static void UserCreate()
 		{
-
 			string name;
 			int age;
 			string address;
@@ -87,16 +83,8 @@ namespace LostMyLighterGroup4
 				}
 			}
 
-            new User(name, age, address, lostLighters);
-
 			User user = new User(name, age, address, lostLighters);
 			user.PrintUser();
-
-
-
-
-
-
 
 		}
 
