@@ -50,8 +50,7 @@ namespace LostMyLighterGroup4
             PrintShortSeparator();
             Console.WriteLine("Inställningar".PadLeft(19));
             Console.WriteLine("5) Redigera profil.");
-            Console.WriteLine("6) Ta bort användarprofil.");
-            Console.WriteLine("7) Logga ut");
+            Console.WriteLine("6) Logga ut");
             PrintShortSeparator();
             Console.WriteLine();
             Console.WriteLine("0) Avsluta programmet.");
