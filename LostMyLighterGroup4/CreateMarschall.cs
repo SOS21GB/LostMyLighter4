@@ -15,7 +15,6 @@ namespace LostMyLighterGroup4
             Console.Write("\nMärke: ");
             string brand = Console.ReadLine();
 
-            Console.Write("\nAddress: ");
             Address address = new Address(CreateAddress.AddStreet(), CreateAddress.AddPostCode(), CreateAddress.AddPostTown());
 
             Console.Write("\nDitt namn: ");
