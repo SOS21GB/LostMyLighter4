@@ -10,7 +10,7 @@ namespace LostMyLighterGroup4
     {
         public static void CreateMarschalls()
         {
-            Console.WriteLine("Ange marschallinformation.");
+            Console.WriteLine("Registrera marschall.");
 
             Console.Write("\nMärke: ");
             string brand = Console.ReadLine();
@@ -40,7 +40,7 @@ namespace LostMyLighterGroup4
 
             Marschall marshall = new Marschall(brand, address, registeringUser, burntime);
 
-            Console.WriteLine("\nMarschall skapad.");
+            Console.WriteLine("\nMarschall registrerad.");
         }
     }
 }
