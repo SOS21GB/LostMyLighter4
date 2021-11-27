@@ -40,8 +40,7 @@ namespace LostMyLighterGroup4
 
             Marschall marshall = new Marschall(brand, address, registeringUser, burntime);
 
-            marshall.PrintInfo();
-
+            Console.WriteLine("\nMarshall skapad.");
         }
     }
 }
