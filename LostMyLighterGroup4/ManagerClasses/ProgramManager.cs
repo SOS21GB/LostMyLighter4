@@ -9,10 +9,8 @@ namespace LostMyLighterGroup4
 {
     class ProgramManager
     {
-        //Behålla dessa här eller ta bort?
-
-        MenuClasses.LoggedInMenu lMenu = new MenuClasses.LoggedInMenu();
-        MenuClasses.StandardMenu stMenu = new MenuClasses.StandardMenu();
+        MenuClasses.LoggedInMenu lMenu = new ();
+        MenuClasses.StandardMenu stMenu = new ();
         private static int _userActive;
         
 
@@ -53,23 +51,19 @@ namespace LostMyLighterGroup4
                     currentUser.PrintUser();
                         break;
                     case 5:
-                        // run change user name method
-                        break;
-                    case 6:
-                        //run change age method
-                        break;
-                    case 7:
-                        //run change user adress method
-                        break;
-                case 8:
+                       // MethodChange.ChangeUserMethod(_userActive);
+
+                        // Kod som skall in i submenyn
+                         /*
                     bool delete = User.DeleteUser(_userActive);
                     _userActive = delete == true ? 0: _userActive;
-                    break;
-                    case 9:
+                        */
+                        break;
+                    case 6:
                     Console.WriteLine("Du loggas ut");
                     MenuClasses.SearchMenu.UserKeyPressToContinue();
                     _userActive = 0;
-                    break;
+                        break;
                     case 0:
                         return;
                 }
