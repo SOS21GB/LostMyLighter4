@@ -24,7 +24,6 @@ namespace LostMyLighterGroup4
                     case "4":
                     case "5":
                     case "6":
-                    case "7":
                         return int.Parse(userInput);
                     case "0":
                         Console.WriteLine("Avslutar programmet. Hejdå.");
