@@ -133,7 +133,7 @@ namespace LostMyLighterGroup4
         public void PrintUser()
         {
             Console.Clear();
-            Console.WriteLine("ID:{0}. Namn: {0}.", _id, _name);
+            Console.WriteLine("ID:{0}. Namn: {1}.", _id, _name);
             Console.WriteLine("Ålder: {0}. Adress: {1}", _age, _address);
             Console.WriteLine("Sökningar: {0}. Registrerade marschaller: {1}. Borttappade tändare: {2}.", _searches, _regMarschalls, _lostLighters);
             Console.WriteLine();
