@@ -24,7 +24,7 @@ namespace LostMyLighterGroup4.MenuClasses
                     case "4":
                         return int.Parse(userInput);
                     case "0":
-                        Console.WriteLine("Avslutar programmet. Hejdå.");
+                        Console.WriteLine("\nAvslutar programmet. Hejdå.");
                         return 0;
                     default:
                         Console.WriteLine("Felaktig inmatning. Försök igen!");
@@ -40,6 +40,7 @@ namespace LostMyLighterGroup4.MenuClasses
         {
             PrintSeparator();
             Console.WriteLine("Huvudmeny".PadLeft(18));
+            PrintShortSeparator();
             Console.WriteLine("1) Visa\\Sök marschaller.");
             Console.WriteLine("2) Registrera marschall.");
             Console.WriteLine();
