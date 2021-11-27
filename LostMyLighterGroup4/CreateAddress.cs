@@ -10,7 +10,7 @@ namespace LostMyLighterGroup4
     {
         public static string AddStreet()
         {
-            Console.WriteLine("Lägg till gatuadress. Raderna för nummer och bokstav kan lämnas tomma.");
+            Console.WriteLine("\nLägg till gatuadress. Raderna för nummer och bokstav kan lämnas tomma.");
 
             string street = "";
 
@@ -48,7 +48,7 @@ namespace LostMyLighterGroup4
                 }
                 else
                 {
-                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                    Console.WriteLine("Felaktig inmatning.");
                 }
             }
 
@@ -69,7 +69,7 @@ namespace LostMyLighterGroup4
                 }
                 else
                 {
-                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                    Console.WriteLine("Felaktig inmatning.");
                 }
             }
 
