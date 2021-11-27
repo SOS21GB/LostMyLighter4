@@ -17,9 +17,11 @@ namespace LostMyLighterGroup4
 
 			int i = 0;
 
+            Console.WriteLine("Registrera användare.");
+
 			while (i == 0)
 			{
-				Console.WriteLine("skriv ditt namn: ");
+				Console.Write("\nAnge ditt namn: ");
 				try
 				{
 					name = Console.ReadLine();
@@ -27,7 +29,7 @@ namespace LostMyLighterGroup4
 				}
 				catch
 				{
-					Console.WriteLine("Error try again");
+					Console.Write("\nFelaktig inmatning. Försök igen: ");
 				}
 			}
 
@@ -37,7 +39,7 @@ namespace LostMyLighterGroup4
 
 			while (i == 1)
 			{
-				Console.WriteLine("skriv din ålder: ");
+				Console.Write("\nAnge din ålder: ");
 				try
 				{
 					age = Convert.ToInt32(Console.ReadLine());
@@ -46,14 +48,14 @@ namespace LostMyLighterGroup4
 				}
 				catch
 				{
-					Console.WriteLine("Error try again");
+					Console.Write("\nFelaktig inmatning. Försök igen: ");
 				}
 			}
 
 
 			while (i == 2)
 			{
-				Console.WriteLine("skriv din adress: ");
+				Console.Write("\nAnge din adress: ");
 				try
 				{
 					address = Console.ReadLine();
@@ -62,7 +64,7 @@ namespace LostMyLighterGroup4
 				}
 				catch
 				{
-					Console.WriteLine("Error try again");
+					Console.Write("\nFelaktig inmatning. Försök igen: ");
 				}
 
 
@@ -71,7 +73,7 @@ namespace LostMyLighterGroup4
 
 			while (i == 3)
 			{
-				Console.WriteLine("skriv antalet borttappade tändare: ");
+				Console.Write("\nAnge antal borttappade tändare: ");
 				try
 				{
 					lostLighters = Convert.ToInt32(Console.ReadLine());
@@ -79,14 +81,13 @@ namespace LostMyLighterGroup4
 				}
 				catch
 				{
-					Console.WriteLine("Error try again");
+					Console.Write("\nFelaktig inmatning. Försök igen: ");
 				}
 			}
 
 			User user = new User(name, age, address, lostLighters);
-			user.PrintUser();
 
-			MenuClasses.SearchMenu.UserKeyPressToContinue();
+            Console.WriteLine("\nDitt användar-ID: {0}", user.ID);
 		}
 
 	}

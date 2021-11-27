@@ -13,7 +13,6 @@ namespace LostMyLighterGroup4.MenuClasses
         {
             while (true)
             {
-                //Console.Clear();
                 Console.WriteLine("Hej {0}", userName);
                 PrintMenu();
                 string userInput = Console.ReadLine();

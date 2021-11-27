@@ -14,7 +14,6 @@ namespace LostMyLighterGroup4.MenuClasses
         {
             while (true)
             {
-                //Console.Clear();
                 PrintMainMenu();
                 string userInput = Console.ReadLine();
                 switch (userInput)
