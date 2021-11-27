@@ -45,7 +45,7 @@ namespace LostMyLighterGroup4
                             break;
                         }
                     case "4":
-                        if (DeleteUser(id))
+                        if (User.DeleteUser(id))
                         {
                             return;
                         }
@@ -149,24 +149,5 @@ namespace LostMyLighterGroup4
             }
         }
 
-        //Ta bort användaren
-        private static bool DeleteUser(int id)
-        {
-            Console.WriteLine("Är du säker? (y/n)");
-            string answer = Console.ReadLine();
-            if (answer.ToLower() == "y")
-            {
-                Console.WriteLine("Tar bort användare {0}.", User.GetUserById(id).Name);
-                User.DeleteUser(id);
-                MenuClasses.SearchMenu.UserKeyPressToContinue();
-                Console.Clear();
-                return true;
-            }
-            else
-            {
-                Console.Clear();
-                return false;
-            }
-        }
     }
 }

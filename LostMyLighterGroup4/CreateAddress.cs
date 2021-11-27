@@ -32,13 +32,46 @@ namespace LostMyLighterGroup4
                 }
             }
 
-            Console.Write("\nNummer: ");
+            string streetNumber = "";
+            while (true)
+            {
+                Console.Write("\nNummer: ");
+                string tempStr = Console.ReadLine();
+                if (int.TryParse(tempStr, out int streetNo))
+                {
+                    streetNumber = streetNo.ToString();
+                    break;
+                }
+                else if (tempStr == "")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                }
+            }
 
-            string streetNumber = Console.ReadLine();
+            string streetLetter = "";
 
-            Console.Write("\nBokstav: ");
-
-            string streetLetter = Console.ReadLine();
+            while (true)
+            {
+                Console.Write("\nBokstav: ");
+                string tempStr = Console.ReadLine();
+                if (!tempStr.All(char.IsDigit) && tempStr.Length == 1)
+                {
+                    streetLetter = tempStr;
+                    break;
+                }
+                else if (tempStr == "")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                }
+            }
 
             street = street.ToLower().Trim();
 
