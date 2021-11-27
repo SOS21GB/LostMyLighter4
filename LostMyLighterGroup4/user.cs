@@ -141,25 +141,6 @@ namespace LostMyLighterGroup4
             Console.ReadKey();
         }
 
-
-        //Listar alla användare, behöver vi denna metod? Admin funktion?
-        public static void PrintInfo()
-        {
-            Console.Clear();
-            foreach (User i in users)
-            {
-                Console.WriteLine("Namn: {0}", i._name);
-                Console.WriteLine("ID: {0}", i._id);
-                Console.WriteLine("Ålder: {0}", i._age);
-                Console.WriteLine("Adress: {0}", i._address);
-                Console.WriteLine("Antal sökningar: {0}", i._searches);
-                Console.WriteLine("Antal registrerade marschaller: {0}", i._regMarschalls);
-                Console.WriteLine("Antal borttappade tändare: {0} \n", i._lostLighters);
-            }
-            Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny..");
-            Console.ReadKey();
-        }
-
         //Ökar sökningscountern
         public static void AddSearch(User u)
         {
