@@ -16,7 +16,7 @@ namespace LostMyLighterGroup4.LogIn
             {
                 bool userFound = false;
                 int userID=0;
-                Console.Write("Skriv in ditt användar-ID, eller välj \"0\" för att gå tillbaka: ");
+                Console.WriteLine("Skriv in ditt användar-ID, eller välj (0) för att gå tillbaka");
                 try
                 {
                     userID = Convert.ToInt32(Console.ReadLine());

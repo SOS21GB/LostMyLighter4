@@ -25,7 +25,7 @@ namespace LostMyLighterGroup4
             else
             {
                 User currentUser = User.GetUserById(_userActive);
-                LoggedinUserChoice(lMenu.UserMenu(currentUser.Name));
+                LoggedinUserChoice(lMenu.UserMenu(currentUser));
             }
         }
 

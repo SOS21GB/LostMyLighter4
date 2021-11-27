@@ -9,11 +9,12 @@ namespace LostMyLighterGroup4.MenuClasses
     class LoggedInMenu
     {
         //Huvudmenyloop, returnerar int beroende på input
-        public int UserMenu(string userName)
+        public int UserMenu(User userName)
         {
             while (true)
             {
-                Console.WriteLine("Hej {0}", userName);
+                Console.WriteLine("Inloggat ID: {0}\n", userName.ID);
+                Console.WriteLine("Välkommen, {0}!".PadLeft(20), userName.Name);
                 PrintMenu();
                 string userInput = Console.ReadLine();
                 switch (userInput)
@@ -26,8 +27,7 @@ namespace LostMyLighterGroup4.MenuClasses
                     case "6":
                         return int.Parse(userInput);
                     case "0":
-                        Console.Clear();
-                        Console.WriteLine("Avslutar programmet. Hejdå.");
+                        Console.WriteLine("\nAvslutar programmet. Hejdå {0}!",userName.Name);
                         return 0;
                     default:
                         Console.Clear();
@@ -42,15 +42,14 @@ namespace LostMyLighterGroup4.MenuClasses
         private void PrintMenu()
         {
             PrintSeparator();
+            Console.WriteLine();
             Console.WriteLine("Användarmeny".PadLeft(19));
+            PrintShortSeparator();
             Console.WriteLine("1) Visa\\Sök marschaller.");
             Console.WriteLine("2) Registrera marschall.");
+            Console.WriteLine("3) Registrera borttappad tändare.");
             PrintShortSeparator();
-            Console.WriteLine("3) Anmäl borttappad tändare.");
-            PrintShortSeparator();
-            Console.WriteLine("4) Visa profil.");
-            PrintShortSeparator();
-            Console.WriteLine("Inställningar".PadLeft(19));
+            Console.WriteLine("\n4) Visa profil.");
             Console.WriteLine("5) Redigera profil.");
             Console.WriteLine("6) Logga ut");
             PrintShortSeparator();

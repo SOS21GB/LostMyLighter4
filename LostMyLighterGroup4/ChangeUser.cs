@@ -10,11 +10,11 @@ namespace LostMyLighterGroup4
             {
                 Console.WriteLine("Vad vill du redigera?");
 
-                Console.WriteLine("1.  Namn.");
-                Console.WriteLine("2.  Ålder.");
-                Console.WriteLine("3.  Adress.");
-                Console.WriteLine("4.  Ta bort användare.");
-                Console.WriteLine("0.  Återgå till huvudmenyn.");
+                Console.WriteLine("1)  Namn.");
+                Console.WriteLine("2)  Ålder.");
+                Console.WriteLine("3)  Adress.");
+                Console.WriteLine("4)  Ta bort användare.");
+                Console.WriteLine("0)  Återgå till huvudmenyn.");
                 switch (Console.ReadLine())
                 {
                     case "1":
