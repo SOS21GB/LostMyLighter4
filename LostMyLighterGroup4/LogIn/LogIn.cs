@@ -40,7 +40,6 @@ namespace LostMyLighterGroup4.LogIn
                 switch (userFound)
                 {
                     case true:
-                        //PasswordCheckMethod();
                         Console.WriteLine("Du är inloggad");
                         return userID;
                             
