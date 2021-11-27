@@ -46,6 +46,7 @@ namespace LostMyLighterGroup4
             foreach(Marschall m in marschalls)
             {
                 m.PrintInfo();
+                Console.WriteLine();
             }
         }
 
@@ -54,7 +55,10 @@ namespace LostMyLighterGroup4
             foreach (Marschall m in marschalls)
             {
                 if(m._expectedBlowoutTime > DateTime.Now)
+                {
                     m.PrintInfo();
+                    Console.WriteLine();
+                }
             }
         }
 

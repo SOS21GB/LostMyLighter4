@@ -12,24 +12,23 @@ namespace LostMyLighterGroup4
         MenuClasses.LoggedInMenu lMenu = new ();
         MenuClasses.StandardMenu stMenu = new ();
         private static int _userActive;
-        
 
-
+        //Huvudfunktion. kallar på
         public void Presenter()
         {
             Console.Clear();
-            switch (_userActive)
+
+            if(_userActive == 0)
             {
-                
-                default:
-                    User currentUser = User.GetUserById(_userActive);
-                    LoggedinUserChoice(lMenu.UserMenu(currentUser.Name));
-                    break;
-                case 0:
-                    StandardUserChoice(stMenu.MainMenu());
-                    break;
+                StandardUserChoice(stMenu.MainMenu());
+            }
+            else
+            {
+                User currentUser = User.GetUserById(_userActive);
+                LoggedinUserChoice(lMenu.UserMenu(currentUser.Name));
             }
         }
+
         //Kör metoder beroende på val från LoggedInMenu objekt
         public void LoggedinUserChoice(int selection)
         {
@@ -37,32 +36,31 @@ namespace LostMyLighterGroup4
             switch (selection)
                 {
                     case 1:
-                    Console.Clear();
-                    MenuClasses.SearchMenu MSMenu = new MenuClasses.SearchMenu();
-                    MSMenu.SearchAndPrintMenu();
+                        Console.Clear();
+                        MenuClasses.SearchMenu MSMenu = new MenuClasses.SearchMenu();
+                        MSMenu.SearchAndPrintMenu();
                         break;
                     case 2:
-                        //run create new marschall method
+                        CreateMarschall.CreateMarschalls();
                         break;
                     case 3:
-                    User.AddLostLighter(currentUser);
+                        User.AddLostLighter(currentUser);
                         break;
                     case 4:
-                    currentUser.PrintUser();
+                        currentUser.PrintUser();
                         break;
                     case 5:
-                       // MethodChange.ChangeUserMethod(_userActive);
-
-                        // Kod som skall in i submenyn
-                         /*
-                    bool delete = User.DeleteUser(_userActive);
-                    _userActive = delete == true ? 0: _userActive;
-                        */
+                        ChangeUser.ChangeUserMethod(_userActive);
+                        if (User.GetUserById(_userActive) == null)
+                        {
+                            _userActive = 0;
+                            Console.WriteLine("Användare borttagen. Du loggas ut.");
+                        }
                         break;
                     case 6:
-                    Console.WriteLine("Du loggas ut");
-                    MenuClasses.SearchMenu.UserKeyPressToContinue();
-                    _userActive = 0;
+                        Console.WriteLine("Du loggas ut");
+                        MenuClasses.SearchMenu.UserKeyPressToContinue();
+                        _userActive = 0;
                         break;
                     case 0:
                         return;
@@ -73,7 +71,6 @@ namespace LostMyLighterGroup4
         //Kör metoder beroende på output från StandardMenu objekt
         public void StandardUserChoice(int selection)
         {
-            
             switch(selection)
             {
                 case 1:
@@ -82,7 +79,7 @@ namespace LostMyLighterGroup4
                     MSMenu.SearchAndPrintMenu();
                     break;
                 case 2:
-                    //run create new marschall method or constructor
+                    CreateMarschall.CreateMarschalls();
                     break;
                 case 3:
                     Console.Clear();
@@ -96,11 +93,6 @@ namespace LostMyLighterGroup4
                     return;
             }
             Presenter();
-        }
-        //Konstruktor
-       public ProgramManager()
-        {
-
         }
     }
 }
