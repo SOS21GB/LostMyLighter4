@@ -24,8 +24,6 @@ namespace LostMyLighterGroup4
                     case "4":
                     case "5":
                     case "6":
-                    case "7":
-                    case "8":
                         return int.Parse(userInput);
                     case "0":
                         Console.WriteLine("Avslutar programmet. Hejdå.");
@@ -50,10 +48,9 @@ namespace LostMyLighterGroup4
             Console.WriteLine("4) Visa profil.");
             PrintShortSeparator();
             Console.WriteLine("Inställningar".PadLeft(19));
-            Console.WriteLine("5) Byt namn.");
-            Console.WriteLine("   Ändra ålder.");
-            Console.WriteLine("   Ändra adress.");
-            Console.WriteLine("6) Logga ut");
+            Console.WriteLine("5) Redigera profil.");
+            Console.WriteLine("6) Ta bort användarprofil.");
+            Console.WriteLine("7) Logga ut");
             PrintShortSeparator();
             Console.WriteLine();
             Console.WriteLine("0) Avsluta programmet.");
