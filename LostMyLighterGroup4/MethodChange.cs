@@ -11,8 +11,8 @@ namespace LostMyLighterGroup4
             do
             {
                 Console.WriteLine(" Choose what do you want to change? ");
-                Console.WriteLine("1.  Name:");
-                Console.WriteLine("2.  Age:");
+                Console.WriteLine("1. Name:");
+                Console.WriteLine("2. Age:");
 
 
                 try
