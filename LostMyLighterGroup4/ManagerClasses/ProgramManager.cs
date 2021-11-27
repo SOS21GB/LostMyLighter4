@@ -95,7 +95,8 @@ namespace LostMyLighterGroup4
                     _userActive = LogIn.LogIn.CheckUser(User.UserIDList());
                     break;
                 case 4:
-                    //create new user method or constructor
+                    Console.Clear();
+                    InputUser.UserCreate();
                     break;
                 case 0:
                     return;
