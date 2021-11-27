@@ -6,6 +6,7 @@ namespace LostMyLighterGroup4
         public static void ChangeUserMethod(int id)
         {
             int Input = 0;
+            
 
             do
             {
@@ -16,6 +17,7 @@ namespace LostMyLighterGroup4
 
                 try
                 {
+                    
                     Input = Convert.ToInt32(Console.ReadLine());
                 }
                 catch
@@ -36,8 +38,15 @@ namespace LostMyLighterGroup4
                     break;
 
                 case 2:
-                    Console.WriteLine("Ändra ålder: ");
-                    User.GetUserById(id).Age = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        Console.WriteLine("Ändra ålder: ");
+                        User.GetUserById(id).Age = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Felaktig inmatning");
+                    }
                     break;
 
 
