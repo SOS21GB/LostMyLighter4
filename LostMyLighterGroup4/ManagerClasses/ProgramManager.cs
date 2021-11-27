@@ -42,6 +42,7 @@ namespace LostMyLighterGroup4
                         break;
                     case 2:
                         CreateMarschall.CreateMarschalls();
+                    currentUser.RegisteredMarschalls++;
                         break;
                     case 3:
                         User.AddLostLighter(currentUser);
