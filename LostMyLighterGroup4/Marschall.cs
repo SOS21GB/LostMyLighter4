@@ -46,6 +46,7 @@ namespace LostMyLighterGroup4
             foreach(Marschall m in marschalls)
             {
                 m.PrintInfo();
+                Console.WriteLine();
             }
         }
 
@@ -54,14 +55,17 @@ namespace LostMyLighterGroup4
             foreach (Marschall m in marschalls)
             {
                 if(m._expectedBlowoutTime > DateTime.Now)
+                {
                     m.PrintInfo();
+                    Console.WriteLine();
+                }
             }
         }
 
         //Hitta gata
         public static void FindStreet() 
         {
-            Console.WriteLine("Ange adress. Raderna för nummer och bokstav kan lämnas tomma. ");
+            Console.WriteLine("Ange adress. Raderna för nummer och bokstav kan lämnas tomma. (0 för att avbryta)");
 
             string userStreet = "";
 
@@ -72,10 +76,13 @@ namespace LostMyLighterGroup4
                 Console.Write("\nGata: ");
 
                 userStreet = Console.ReadLine();
-
+                if(userStreet == "0")
+                {
+                    return;
+                }
                 if (string.IsNullOrWhiteSpace(userStreet))
                 {
-                    Console.Write("Ingen uppgift. Försök igen: ");
+                    Console.Write("Ingen uppgift. Försök igen (0 för att avbryta): ");
                 }
                 else
                 {
@@ -83,13 +90,46 @@ namespace LostMyLighterGroup4
                 }
             }
 
-            Console.Write("\nNummer: ");
+            string userStreetNumber = "";
+            while (true)
+            {
+                Console.Write("\nNummer: ");
+                string tempStr = Console.ReadLine();
+                if (int.TryParse(tempStr, out int streetNo))
+                {
+                    userStreetNumber = streetNo.ToString();
+                    break;
+                }
+                else if(tempStr == "")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                }
+            }
 
-            string userStreetNumber = Console.ReadLine();
+            string userStreetLetter = "";
 
-            Console.Write("\nBokstav: ");
-
-            string userStreetLetter = Console.ReadLine();
+            while(true)
+            {
+                Console.Write("\nBokstav: ");
+                string tempStr = Console.ReadLine();
+                if (!tempStr.All(char.IsDigit) && tempStr.Length == 1)
+                {
+                    userStreetLetter = tempStr;
+                    break;
+                }
+                else if (tempStr == "")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                }
+            }
 
             userStreet = userStreet.ToLower().Trim();
 
@@ -162,7 +202,7 @@ namespace LostMyLighterGroup4
         //Hitta postkod
         public static void FindPostCode()
         {
-            Console.Write("Ange postnummer: ");
+            Console.WriteLine("Ange postnummer. (0 för att avbryta)");
 
             List<char> userPostCodeList = new List<char>();
 
@@ -173,6 +213,11 @@ namespace LostMyLighterGroup4
                 userPostCodeList.Clear(); // Nollställ om loopen går igen så att det inte byggs på element.
 
                 string userPostCode = Console.ReadLine();
+
+                if(userPostCode == "0")
+                {
+                    return;
+                }
 
                 userPostCodeList.AddRange(userPostCode);
 

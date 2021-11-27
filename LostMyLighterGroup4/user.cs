@@ -141,6 +141,7 @@ namespace LostMyLighterGroup4
             Console.WriteLine("\nRegistrerade marschaller: 01}.", _regMarschalls);
             Console.WriteLine("\nBorttappade tändare: {0}.", _lostLighters);
             Console.WriteLine("\nTryck på valfri tangent för att återgå till huvudmeny...");
+
             Console.ReadKey();
         }
 
