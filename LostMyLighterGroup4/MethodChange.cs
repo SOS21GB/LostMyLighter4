@@ -10,9 +10,9 @@ namespace LostMyLighterGroup4
             do
             {
                 Console.WriteLine(" Choose what do you want to change? ");
+
                 Console.WriteLine("1.  Name:");
                 Console.WriteLine("2.  Age:");
-
 
                 try
                 {
@@ -36,14 +36,17 @@ namespace LostMyLighterGroup4
                     break;
 
                 case 2:
-                    Console.WriteLine("Ändra ålder: ");
-                    User.GetUserById(id).Age = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        Console.WriteLine("Ändra ålder: ");
+                        User.GetUserById(id).Age = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Felaktig inmatning");
+                    }
                     break;
-
-
             }
-
-
         }
     }
 }
