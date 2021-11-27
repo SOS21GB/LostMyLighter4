@@ -58,23 +58,7 @@ namespace LostMyLighterGroup4
             Console.WriteLine(_antalsökning);
             Console.WriteLine(_antalregisterade);
             Console.WriteLine(_borttappadetänder);
-        }
-
-
-
-        public static void PrintInfo()
-        {
-            foreach (user i in users)
-            {
-                Console.WriteLine("NAME: {0}", i._name);
-                Console.WriteLine("ID: {0}", i._id);
-                Console.WriteLine("ÅLDER: {0}", i._ålder);
-                Console.WriteLine("ADRESS: {0}", i._adress);
-                Console.WriteLine("ANTAL SÖKNING: {0}", i._antalsökning);
-                Console.WriteLine("ANTAL REGISTERADE MARSCHALLER: {0}", i._antalregisterade);
-                Console.WriteLine("ANTAL BORTTAPADE TÄNDER: {0}", i._borttappadetänder);
-            }
-        }
+        }      
 
 
 
