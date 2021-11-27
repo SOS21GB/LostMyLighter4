@@ -135,7 +135,7 @@ namespace LostMyLighterGroup4
             Console.Clear();
             Console.WriteLine("ID:{0}. Namn: {0}.", _id, _name);
             Console.WriteLine("Ålder: {0}. Adress: {1}", _age, _address);
-            Console.WriteLine("Sökningar: {0}. Registrerade marschaller: {1}. Borttappade tändare: {3}.", _searches, _regMarschalls, _lostLighters);
+            Console.WriteLine("Sökningar: {0}. Registrerade marschaller: {1}. Borttappade tändare: {2}.", _searches, _regMarschalls, _lostLighters);
             Console.WriteLine();
             Console.WriteLine("\n \n Tryck på valfri tangent för att återgå till huvudmeny...");
             Console.ReadKey();
@@ -193,15 +193,33 @@ namespace LostMyLighterGroup4
         }
 
         //Tar bort en användare om id kan hittas i listan
-        public static void DeleteUser(int id)
+        public static bool DeleteUser(int id)
         {
-            foreach (User i in users)
+            Console.Clear();
+            Console.WriteLine("Är du säker på att du vill ta bort din användarprofil ? \nTryck (1) för att fortsätta, eller (0) för att avbryta");
+            while (true)
             {
-                if (i.ID == id)
+                Console.Write("Ditt val: ");
+                string choice = Console.ReadLine();
+                switch (choice)
                 {
-                    users.Remove(i);
-                    Console.WriteLine("Användare borttagen.");
-                    return;
+                    case "1":
+                        foreach (User i in users)
+                        {
+                            if (i.ID == id)
+                            {
+                                users.Remove(i);
+                                Console.WriteLine("Användare borttagen.");
+                                MenuClasses.SearchMenu.UserKeyPressToContinue();
+                                return true;
+                            }
+                        }
+                        break;
+                    case "0":
+                        return false;
+                    default:
+                        Console.WriteLine("Ogiltigt val");
+                        break;
                 }
             }
         }
@@ -213,11 +231,9 @@ namespace LostMyLighterGroup4
 
             while (loop)    
             {
-                Console.Write("Antal borttappade tändare att registera: ");   
+                Console.Write("Antal borttappade tändare att registera: ");     
 
-                bool userInput = int.TryParse(Console.ReadLine(), out int lighter);
-
-                if (userInput)  
+                if (int.TryParse(Console.ReadLine(), out int lighter))
                 {
                     Console.WriteLine("{0} borttappade tändare har registrerats", lighter);
                     users._lostLighters += lighter;

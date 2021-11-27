@@ -27,8 +27,7 @@ namespace LostMyLighterGroup4.MenuClasses
                     case "6":
                     case "7":
                     case "8":
-                        Console.Clear();
-                        SearchMenu.UserKeyPressToContinue();
+                    case "9":
                         return int.Parse(userInput);
                     case "0":
                         Console.Clear();
@@ -59,7 +58,8 @@ namespace LostMyLighterGroup4.MenuClasses
             Console.WriteLine("5) Byt namn.");
             Console.WriteLine("6) Ändra ålder.");
             Console.WriteLine("7) Ändra adress.");
-            Console.WriteLine("8) Logga ut");
+            Console.WriteLine("8) Ta bort användarprofil.");
+            Console.WriteLine("9) Logga ut");
             PrintShortSeparator();
             Console.WriteLine();
             Console.WriteLine("0) Avsluta programmet.");

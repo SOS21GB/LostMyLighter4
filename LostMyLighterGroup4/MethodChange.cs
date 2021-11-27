@@ -6,18 +6,16 @@ namespace LostMyLighterGroup4
         public static void ChangeUserMethod(int id)
         {
             int Input = 0;
-            
 
             do
             {
                 Console.WriteLine(" Choose what do you want to change? ");
-                Console.WriteLine("1. Name:");
-                Console.WriteLine("2. Age:");
 
+                Console.WriteLine("1.  Name:");
+                Console.WriteLine("2.  Age:");
 
                 try
                 {
-                    
                     Input = Convert.ToInt32(Console.ReadLine());
                 }
                 catch
@@ -48,11 +46,7 @@ namespace LostMyLighterGroup4
                         Console.WriteLine("Felaktig inmatning");
                     }
                     break;
-
-
             }
-
-
         }
     }
 }

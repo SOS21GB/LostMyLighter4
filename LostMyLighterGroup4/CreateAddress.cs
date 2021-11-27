@@ -53,7 +53,7 @@ namespace LostMyLighterGroup4
 
         public static string AddPostCode()
         {
-            Console.Write("Postnummer: ");
+            Console.Write("\nPostnummer: ");
 
             List<char> postCodeList = new List<char>();
 

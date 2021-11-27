@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LostMyLighterGroup4.MenuClasses
+namespace LostMyLighterGroup4
 {
-    class StandardMenu
+    class LoggedInMeny
     {
-
-        //Huvudmenyloop, returnerar int beroende på input
-        public int MainMenu()
+        public int UserMenu(string userName)
         {
             while (true)
             {
                 //Console.Clear();
-                PrintMainMenu();
+                Console.WriteLine("Hej {0}", userName);
+                PrintMenu();
                 string userInput = Console.ReadLine();
                 switch (userInput)
                 {
@@ -23,35 +22,38 @@ namespace LostMyLighterGroup4.MenuClasses
                     case "2":
                     case "3":
                     case "4":
+                    case "5":
+                    case "6":
                         return int.Parse(userInput);
                     case "0":
                         Console.WriteLine("Avslutar programmet. Hejdå.");
                         return 0;
                     default:
                         Console.WriteLine("Felaktig inmatning. Försök igen!");
-                        SearchMenu.UserKeyPressToContinue();
-                        Console.Clear();
                         break;
                 }
             }
         }
 
         //Skriver ut huvudmenyn
-        private void PrintMainMenu()
+        private void PrintMenu()
         {
             PrintSeparator();
-            Console.WriteLine("Huvudmeny".PadLeft(18));
+            Console.WriteLine("Användarmeny".PadLeft(19));
             Console.WriteLine("1) Visa\\Sök marschaller.");
             Console.WriteLine("2) Registrera marschall.");
-            Console.WriteLine();
             PrintShortSeparator();
-            Console.WriteLine("3) Logga in.");
-            Console.WriteLine("4) Skapa användare.");
+            Console.WriteLine("3) Anmäl borttappad tändare.");
+            PrintShortSeparator();
+            Console.WriteLine("4) Visa profil.");
+            PrintShortSeparator();
+            Console.WriteLine("Inställningar".PadLeft(19));
+            Console.WriteLine("5) Redigera profil.");
+            Console.WriteLine("6) Logga ut");
             PrintShortSeparator();
             Console.WriteLine();
             Console.WriteLine("0) Avsluta programmet.");
             PrintSeparator();
-            Console.Write("Ditt val: ");
         }
 
 
@@ -67,4 +69,6 @@ namespace LostMyLighterGroup4.MenuClasses
         }
         #endregion
     }
-}
+} 
+
+

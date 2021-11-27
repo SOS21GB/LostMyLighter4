@@ -10,15 +10,17 @@ namespace LostMyLighterGroup4.MenuClasses
     {
         public void SearchAndPrintMenu()
         {
+            Console.Clear();
             while (true)
             {
+                Console.Clear();
                 PrintSearchMenu();
 
                 string userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
-                    case "1":   
+                    case "1":
                         Console.Clear();
                         Marschall.FindStreet();
                         UserKeyPressToContinue();
@@ -39,12 +41,11 @@ namespace LostMyLighterGroup4.MenuClasses
                         UserKeyPressToContinue();
                         break;
                     case "0":
-                        Console.Clear();
                         return;
                     default:
-                        Console.Clear();
                         Console.WriteLine("Felaktig inmatning. Försök igen.");
                         UserKeyPressToContinue();
+                        Console.Clear();
                         break;
                 }
             }
