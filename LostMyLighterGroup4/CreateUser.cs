@@ -21,16 +21,15 @@ namespace LostMyLighterGroup4
 
 			while (i == 0)
 			{
+
 				Console.Write("\nAnge ditt namn: ");
-				try
-				{
-					name = Console.ReadLine();
+				name = Console.ReadLine();
+
+				if(!string.IsNullOrEmpty(name))
 					i++;
-				}
-				catch
-				{
+				else
 					Console.Write("\nFelaktig inmatning. Försök igen: ");
-				}
+
 			}
 
 
@@ -40,49 +39,32 @@ namespace LostMyLighterGroup4
 			while (i == 1)
 			{
 				Console.Write("\nAnge din ålder: ");
-				try
-				{
-					age = Convert.ToInt32(Console.ReadLine());
+				
+				if(int.TryParse(Console.ReadLine(), out age))
 					i++;
-
-				}
-				catch
-				{
+				else
 					Console.Write("\nFelaktig inmatning. Försök igen: ");
-				}
 			}
 
 
 			while (i == 2)
 			{
 				Console.Write("\nAnge din adress: ");
-				try
-				{
-					address = Console.ReadLine();
+				address = Console.ReadLine();
+
+				if (!string.IsNullOrEmpty(address))
 					i++;
-
-				}
-				catch
-				{
+				else
 					Console.Write("\nFelaktig inmatning. Försök igen: ");
-				}
-
-
-
 			}
 
 			while (i == 3)
 			{
 				Console.Write("\nAnge antal borttappade tändare: ");
-				try
-				{
-					lostLighters = Convert.ToInt32(Console.ReadLine());
+				if (int.TryParse(Console.ReadLine(), out lostLighters))
 					i++;
-				}
-				catch
-				{
+				else
 					Console.Write("\nFelaktig inmatning. Försök igen: ");
-				}
 			}
 
 			User user = new User(name, age, address, lostLighters);
