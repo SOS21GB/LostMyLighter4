@@ -22,7 +22,7 @@ namespace LostMyLighterGroup4
             Console.Write("\nDitt namn: ");
             string registeringUser = Console.ReadLine();
 
-            Console.Write("\nFörväntad brinntid: ");
+            Console.Write("\nFörväntad brinntid (timmar): ");
 
             double burntime = 0;
             bool loop = true;

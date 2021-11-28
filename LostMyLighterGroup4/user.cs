@@ -134,13 +134,13 @@ namespace LostMyLighterGroup4
         {
             Console.Clear();
             Console.WriteLine("ID:{0}.", _id);
-            Console.WriteLine("\nNamn: {0}.", _name);
-            Console.WriteLine("\nÅlder: {0}.", _age);
-            Console.WriteLine("\nAdress: {0}", _address);
-            Console.WriteLine("\nSökningar: {0}.", _searches);
-            Console.WriteLine("\nRegistrerade marschaller: {0}.", _regMarschalls);
-            Console.WriteLine("\nBorttappade tändare: {0}.", _lostLighters);
-            Console.WriteLine("\nTryck på valfri tangent för att återgå till huvudmeny...");
+            Console.WriteLine("Namn: {0}.", _name);
+            Console.WriteLine("Ålder: {0}.", _age);
+            Console.WriteLine("Adress: {0}", _address);
+            Console.WriteLine("Sökningar: {0}.", _searches);
+            Console.WriteLine("Registrerade marschaller: {0}.", _regMarschalls);
+            Console.WriteLine("Borttappade tändare: {0}.\n", _lostLighters);
+            Console.WriteLine("Tryck på valfri tangent för att återgå till huvudmeny...");
 
             Console.ReadKey();
         }
@@ -148,7 +148,10 @@ namespace LostMyLighterGroup4
         //Ökar sökningscountern
         public static void AddSearch(User u)
         {
+            if (u!=null)
+            {
             u.Searches++;
+            }
         }
 
 
@@ -220,7 +223,7 @@ namespace LostMyLighterGroup4
 
                 if (int.TryParse(Console.ReadLine(), out int lighter))
                 {
-                    Console.WriteLine("{0} borttappade tändare har registrerats", lighter);
+                    Console.WriteLine("{0} borttappade tändare har registrerats\n", lighter);
                     users._lostLighters += lighter;
                     loop = false;
                 }
