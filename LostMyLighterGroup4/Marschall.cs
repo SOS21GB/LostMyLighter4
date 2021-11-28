@@ -34,35 +34,54 @@ namespace LostMyLighterGroup4
 
         public void PrintInfo()
         {
-            Console.Clear();
             Console.WriteLine("ID: {0}.", _id);
-            Console.WriteLine("\nMärke: {0}.", _brand);
-            Console.WriteLine("\nAdress: {0} {1}, {2}.",_address.Street, _address.PostCode, _address.PostTown);
-            Console.WriteLine("\nRegistrerad av: {0} den {1} vid {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
-            Console.WriteLine("\nFörväntad slockningstid: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
+            Console.WriteLine("Märke: {0}.", _brand);
+            Console.WriteLine("Adress: {0} {1}, {2}.",_address.Street, _address.PostCode, _address.PostTown);
+            Console.WriteLine("Registrerad av: {0} den {1} vid {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
+            Console.WriteLine("Förväntad slockningstid: {0}, {1}\n", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
         }
 
 
         //Statiska metoder för listan
         public static void PrintAllMarschalls()
         {
-            foreach(Marschall m in marschalls)
+            if (marschalls.Count>0)
+            { 
+                foreach(Marschall m in marschalls)
+                {
+                    m.PrintInfo();
+                }
+            }
+            else
             {
-                m.PrintInfo();
-                Console.WriteLine();
+                Console.WriteLine("Inga marschaller registrerade.");
             }
         }
 
         public static void PrintActiveMarschalls()
         {
-            foreach (Marschall m in marschalls)
+            int i = 0;
+            if (marschalls.Count == 0)
             {
-                if(m._expectedBlowoutTime > DateTime.Now)
+                Console.WriteLine("Inga aktiva marschaller hittades.");
+            }
+            else
+            {
+                foreach (Marschall m in marschalls)
                 {
-                    m.PrintInfo();
-                    Console.WriteLine();
+                    if(m._expectedBlowoutTime > DateTime.Now)
+                    {
+                        m.PrintInfo();
+                        Console.WriteLine();
+                        i++;
+                    }
+                }
+                if(i==0)
+                {
+                    Console.WriteLine("Inga aktiva marschaller hittades.");
                 }
             }
+
         }
 
         //Hitta gata

@@ -38,7 +38,7 @@ namespace LostMyLighterGroup4
                     case 1:
                         Console.Clear();
                         MenuClasses.SearchMenu MSMenu = new MenuClasses.SearchMenu();
-                        MSMenu.SearchAndPrintMenu();
+                        MSMenu.SearchAndPrintMenu(currentUser);
                         break;
                     case 2:
                         CreateMarschall.CreateMarschalls();
@@ -77,7 +77,7 @@ namespace LostMyLighterGroup4
                 case 1:
                     Console.Clear();
                     MenuClasses.SearchMenu MSMenu = new MenuClasses.SearchMenu();
-                    MSMenu.SearchAndPrintMenu();
+                    MSMenu.SearchAndPrintMenu(null);
                     break;
                 case 2:
                     CreateMarschall.CreateMarschalls();

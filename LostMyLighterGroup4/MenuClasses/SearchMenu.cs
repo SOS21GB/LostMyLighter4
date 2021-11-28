@@ -8,7 +8,7 @@ namespace LostMyLighterGroup4.MenuClasses
 {
     class SearchMenu
     {
-        public void SearchAndPrintMenu()
+        public void SearchAndPrintMenu(User activeUser)
         {
             Console.Clear();
             while (true)
@@ -23,21 +23,25 @@ namespace LostMyLighterGroup4.MenuClasses
                     case "1":
                         Console.Clear();
                         Marschall.FindStreet();
+                        User.AddSearch(activeUser);
                         UserKeyPressToContinue();
                         break;
                     case "2":
                         Console.Clear();
                         Marschall.FindPostCode();
+                        User.AddSearch(activeUser);
                         UserKeyPressToContinue();
                         break;
                     case "3":
                         Console.Clear();
                         Marschall.PrintActiveMarschalls();
+                        User.AddSearch(activeUser);
                         UserKeyPressToContinue();
                         break;
                     case "4":
                         Console.Clear();
                         Marschall.PrintAllMarschalls();
+                        User.AddSearch(activeUser);
                         UserKeyPressToContinue();
                         break;
                     case "0":
