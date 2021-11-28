@@ -88,6 +88,8 @@ namespace LostMyLighterGroup4
 			User user = new User(name, age, address, lostLighters);
 
             Console.WriteLine("\nDitt användar-ID: {0}", user.ID);
+
+			MenuClasses.SearchMenu.UserKeyPressToContinue();
 		}
 
 	}
