@@ -81,7 +81,7 @@ namespace LostMyLighterGroup4
         //Hitta gata
         public static void FindStreet() 
         {
-            Console.WriteLine("Ange adress. Raderna för nummer och bokstav kan lämnas tomma. (0 för att avbryta)");
+            Console.WriteLine("Ange adress. Raderna för nummer och bokstav kan lämnas tomma (0 för att avbryta).");
 
             string userStreet = "";
 
@@ -122,7 +122,7 @@ namespace LostMyLighterGroup4
                 }
                 else
                 {
-                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                    Console.WriteLine("Felaktig inmatning. Endast siffror.");
                 }
             }
 
@@ -143,7 +143,7 @@ namespace LostMyLighterGroup4
                 }
                 else
                 {
-                    Console.WriteLine("Felaktig inmatning. Inga bokstäver i gatunumret.");
+                    Console.WriteLine("Felaktig inmatning. Endast bokstäver.");
                 }
             }
 
@@ -218,7 +218,7 @@ namespace LostMyLighterGroup4
         //Hitta postkod
         public static void FindPostCode()
         {
-            Console.WriteLine("Ange postnummer. (0 för att avbryta)");
+            Console.Write("Ange postnummer (0 för att avbryta): ");
 
             List<char> userPostCodeList = new List<char>();
 
@@ -253,14 +253,17 @@ namespace LostMyLighterGroup4
                     }
                     else
                     {
-                        Console.Write("Felaktig inmatning. Försök igen: ");
+                        Console.Write("\nFelaktig inmatning. Försök igen: ");
                     }
                 }
                 else // Om inget postnummer anges.
                 {
-                    Console.Write("Ingen uppgift. Försök igen: ");
+                    Console.Write("\nIngen uppgift. Försök igen: ");
                 }
             }
+
+            Console.WriteLine("---------------");
+
 
             string pCode = new string(userPostCodeList.ToArray()); // Listan tillbaka som string.
 
@@ -270,12 +273,12 @@ namespace LostMyLighterGroup4
             {
                 pCode = pCode.Insert(3, " "); // Formatering av postnumret.
 
-                Console.WriteLine("Det finns marschall(er) på {0}.", pCode); 
+                Console.WriteLine("\nDet finns marschall(er) på {0}.", pCode); 
                 Console.WriteLine(marschallStr);
             }                                                                                
             else
             {
-                Console.WriteLine("Ingen träff.");
+                Console.WriteLine("\nIngen träff.");
             }
         }
 
