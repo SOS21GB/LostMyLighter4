@@ -38,7 +38,7 @@ namespace LostMyLighterGroup4
             Console.WriteLine("Märke: {0}.", _brand);
             Console.WriteLine("Adress: {0} {1}, {2}.",_address.Street, _address.PostCode, _address.PostTown);
             Console.WriteLine("Registrerad av: {0} den {1} vid {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
-            Console.WriteLine("Förväntad slockningstid: {0}, {1}\n", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
+            Console.WriteLine("Förväntad slockningstid: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
         }
 
 
@@ -50,6 +50,7 @@ namespace LostMyLighterGroup4
                 foreach(Marschall m in marschalls)
                 {
                     m.PrintInfo();
+                    Console.WriteLine();
                 }
             }
             else
@@ -61,27 +62,20 @@ namespace LostMyLighterGroup4
         public static void PrintActiveMarschalls()
         {
             int i = 0;
-            if (marschalls.Count == 0)
+
+            foreach (Marschall m in marschalls)
+            {
+                if(m._expectedBlowoutTime > DateTime.Now)
+                {
+                    m.PrintInfo();
+                    Console.WriteLine();
+                    i++;
+                }
+            }
+            if(i==0)
             {
                 Console.WriteLine("Inga aktiva marschaller hittades.");
             }
-            else
-            {
-                foreach (Marschall m in marschalls)
-                {
-                    if(m._expectedBlowoutTime > DateTime.Now)
-                    {
-                        m.PrintInfo();
-                        Console.WriteLine();
-                        i++;
-                    }
-                }
-                if(i==0)
-                {
-                    Console.WriteLine("Inga aktiva marschaller hittades.");
-                }
-            }
-
         }
 
         //Hitta gata
@@ -203,8 +197,8 @@ namespace LostMyLighterGroup4
                     if (m.Address.Street.ToLower().Contains(streetSearch.ToLower()))
                     {
                         i++;
-                        marschallsStr += $"ID:{m.ID} finns på {m.Address.Street}, {m.Address.PostCode} {m.Address.PostTown}.";
-                        marschallsStr += $"\nBeräknas släckas: {m.ExpectedBlowoutTime.ToString("yyyy/MM/dd HH:mm")}\n";
+                        marschallsStr += $"\nMarschall nr {m.ID} finns på {m.Address.Street}, {m.Address.PostCode} {m.Address.PostTown}.";
+                        marschallsStr += $"\n   Beräknas slockna: {m.ExpectedBlowoutTime.ToString("yyyy/MM/dd HH:mm")}\n";
                     }
                 }
                 else
@@ -212,8 +206,8 @@ namespace LostMyLighterGroup4
                     if (m.Address.PostCode.Contains(codeSearch))
                     {
                         i++;
-                        marschallsStr += $"ID:{m.ID} finns på {m.Address.Street}, {m.Address.PostCode} {m.Address.PostTown}.";
-                        marschallsStr += $"\nBeräknas släckas: {m.ExpectedBlowoutTime.ToString("yyyy/MM/dd HH:mm")}\n";
+                        marschallsStr += $"\nMarschall nr {m.ID} finns på {m.Address.Street}, {m.Address.PostCode} {m.Address.PostTown}.";
+                        marschallsStr += $"\n   Beräknas slockna: {m.ExpectedBlowoutTime.ToString("yyyy/MM/dd HH:mm")}\n";
                     }
                 }
             }
@@ -285,19 +279,6 @@ namespace LostMyLighterGroup4
             }
         }
 
-        public static void PrintAllInfo()
-        {
-            foreach (Marschall v in Marschall.marschalls)
-            {
-                Console.WriteLine("ID: {0}", v.ID);
-                Console.WriteLine("Märke: {0}", v.Brand);
-                Console.WriteLine("Adress: {0}", v.Address);
-                Console.WriteLine("Registrerad av: {0}", v.RegisteringUser);
-                Console.WriteLine("Datum för registering: {0}", v.RegistrationDate);
-                Console.WriteLine("Brinntid: {0}", v.ExpectedBurnTime);
-                Console.WriteLine("Förväntad slockningstid: {0}", v.ExpectedBlowoutTime);
-            }
-        }
         public static Marschall GetMarschall(int id)
         {
             foreach (Marschall v in marschalls)
