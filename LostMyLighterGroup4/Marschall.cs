@@ -33,10 +33,13 @@ namespace LostMyLighterGroup4
         }
 
         public void PrintInfo()
-        { 
-            Console.WriteLine("ID: {0}. Märke: {1}. Adress: {2} {3}, {4}.", _id, _brand, _address.Street, _address.PostCode, _address.PostTown);
-            Console.WriteLine("   Registrerad av: {0} den {1} vid {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
-            Console.WriteLine( "   Väntad slockningstid: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
+        {
+            Console.Clear();
+            Console.WriteLine("ID: {0}.", _id);
+            Console.WriteLine("\nMärke: {0}.", _brand);
+            Console.WriteLine("\nAdress: {0} {1}, {2}.",_address.Street, _address.PostCode, _address.PostTown);
+            Console.WriteLine("\nRegistrerad av: {0} den {1} vid {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
+            Console.WriteLine("\nFörväntad slockningstid: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
         }
 
 
@@ -268,12 +271,12 @@ namespace LostMyLighterGroup4
             foreach (Marschall v in Marschall.marschalls)
             {
                 Console.WriteLine("ID: {0}", v.ID);
-                Console.WriteLine("Brand: {0}", v.Brand);
-                Console.WriteLine("Address: {0}", v.Address);
-                Console.WriteLine("Registering user: {0}", v.RegisteringUser);
-                Console.WriteLine("Date of registration: {0}", v.RegistrationDate);
-                Console.WriteLine("Expected burn time: {0}", v.ExpectedBurnTime);
-                Console.WriteLine("Expected blow out time: {0}", v.ExpectedBlowoutTime);
+                Console.WriteLine("Märke: {0}", v.Brand);
+                Console.WriteLine("Adress: {0}", v.Address);
+                Console.WriteLine("Registrerad av: {0}", v.RegisteringUser);
+                Console.WriteLine("Datum för registering: {0}", v.RegistrationDate);
+                Console.WriteLine("Brinntid: {0}", v.ExpectedBurnTime);
+                Console.WriteLine("Förväntad slockningstid: {0}", v.ExpectedBlowoutTime);
             }
         }
         public static Marschall GetMarschall(int id)

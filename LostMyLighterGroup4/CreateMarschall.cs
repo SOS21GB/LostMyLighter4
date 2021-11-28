@@ -10,6 +10,8 @@ namespace LostMyLighterGroup4
     {
         public static void CreateMarschalls()
         {
+            Console.Clear();
+
             Console.WriteLine("Registrera marschall.");
 
             Console.Write("\nMärke: ");
