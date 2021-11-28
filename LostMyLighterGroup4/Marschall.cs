@@ -38,7 +38,7 @@ namespace LostMyLighterGroup4
             Console.WriteLine("Märke: {0}.", _brand);
             Console.WriteLine("Adress: {0} {1}, {2}.",_address.Street, _address.PostCode, _address.PostTown);
             Console.WriteLine("Registrerad av: {0} den {1} vid {2}", _registeringUser, _registrationDate.ToString("yyyy/MM/dd"), _registrationDate.ToString("HH:mm:ss"));
-            Console.WriteLine("Förväntad slockningstid: {0}, {1}", _expectedBlowoutTime.ToString("yyyy/MM/dd"), _expectedBlowoutTime.ToString("HH:mm:ss"));
+            Console.WriteLine(_expectedBlowoutTime > DateTime.Now ? ("Förväntad slockningstid: "+ _expectedBlowoutTime.ToString("yyyy/MM/dd") + " " + _expectedBlowoutTime.ToString("HH:mm:ss")) : "Har slocknat");
         }
 
 

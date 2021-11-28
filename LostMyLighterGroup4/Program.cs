@@ -9,7 +9,6 @@ namespace LostMyLighterGroup4
     {
         static void Main(string[] args)
         {
-            User namn1 = new User("laban", 13, "gata", 0);
             ProgramManager pMan = new ProgramManager();
             pMan.Presenter();
         }
