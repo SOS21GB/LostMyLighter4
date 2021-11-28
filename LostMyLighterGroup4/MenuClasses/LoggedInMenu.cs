@@ -43,9 +43,9 @@ namespace LostMyLighterGroup4.MenuClasses
         {
             PrintSeparator();
             Console.WriteLine();
-            Console.WriteLine("Användarmeny".PadLeft(19));
+            Console.WriteLine("Huvudmeny".PadLeft(19));
             PrintShortSeparator();
-            Console.WriteLine("1) Visa\\Sök marschaller.");
+            Console.WriteLine("1) Visa eller sök marschaller.");
             Console.WriteLine("2) Registrera marschall.");
             Console.WriteLine("3) Registrera borttappad tändare.");
             PrintShortSeparator();
